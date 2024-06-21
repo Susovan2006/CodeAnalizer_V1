@@ -1,0 +1,52 @@
+{
+	"rulesetVersion": "1.0",
+    "rulesetAuthor": "Susovan Sankar Gumtya",
+    "rulesetUpdateDate": "May-19-2024",
+    "rulesetDescription": "Ruleset for Java Application",
+    "ruleset": [
+        {
+            "ruleNo": 1,
+            "isRuleEnabled": true,
+            "ruleType":"SpringBoot",
+            "ruleDescription": "Search if the application is a SpringBoot App",
+            "listOfSearchFileType": [".java",".xml",".properties"],
+            "listOfSearchString": ["@SpringBootApplication"],
+            "listOfSearchRegex": null,
+            "listOfSearchFilePattern": ["application*.properties","logback*.xml"],
+            "isAlertEnabled": true
+        },
+        {
+            "ruleNo": 2,
+            "isRuleEnabled": false,
+            "ruleType":"Rest Controller",
+            "ruleDescription": "Search is the Application has REST API",
+            "listOfSearchFileType": [".java"],
+            "listOfSearchString": ["@RestController"],
+            "listOfSearchRegex": null,
+            "listOfSearchFilePattern": null;
+            "isAlertEnabled": false
+        },
+        {
+            "ruleNo": 3,
+            "isRuleEnabled": true,
+            "ruleType":"email",
+            "ruleDescription": "Search is the Application has email",
+            "listOfSearchFileType": [".java",".properties"],
+            "listOfSearchString": ["pop3"],
+            "listOfSearchRegex":["\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b"] ,
+            "listOfSearchFilePattern": null,
+            "isAlertEnabled": false
+        },
+        {
+            "ruleNo": 4,
+            "isRuleEnabled": true,
+            "ruleType":"EJB",
+            "ruleDescription": "Search if the application is an EJB App",
+            "listOfSearchFileType": [".java",".xml",".properties",".json",".xml",".gradle",".jsp",".txt",".md"],
+            "listOfSearchString": ["javax.ejb"],
+            "listOfSearchRegex": null,
+            "listOfSearchFilePattern": null,
+            "isAlertEnabled": false
+        }
+    ]
+}

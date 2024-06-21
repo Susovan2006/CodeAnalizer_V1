@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Trust Store</title>
+    <style media="screen">
+        body {
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        header:before, header:after {
+            content: " ";
+            display: table;
+        }
+
+        header:after {
+            clear: both;
+        }
+
+.invoiceNbr {
+			background: linear-gradient(to top, #e0e0e0, #ffffff);
+            font-size: 40px;          
+			color: black; 
+            padding: 20px;
+        }
+        .logo {
+            float: left;
+        }
+
+        .from {
+            float: left;
+        }
+
+        .to {
+            float: right;
+        }
+
+        .fromto {
+            border-style: solid;
+            border-width: 1px;
+            border-color: #e8e5e5;
+            border-radius: 5px;
+            margin: 10px;
+            min-width: 150px;
+        }
+
+		.alert {
+            border-style: solid;
+            border-width: 1px;
+            border-color: #fac5c5;
+            border-radius: 5px;
+            margin: 10px;
+            min-width: 150px;
+        }
+
+        .fromtocontent {
+            margin: 10px;
+            margin-right: 15px;
+        }
+
+        .panel {
+            background-color: #e8e5e5;
+            padding: 7px;
+        }
+
+        .generalPanel {
+            background-color: #e8e5e5;
+            padding: 7px;
+        }
+
+        .alertPanel {
+            background-color: #fac5c5;
+            padding: 7px;
+        }
+
+        .items {
+            clear: both;
+            display: table;
+            padding: 20px;
+        }
+.rules{
+            clear: both;
+            padding: 5px;
+        }
+        /* Factor out common styles for all of the "col-" classes.*/
+        div[class^="col-"] {
+            display: table-cell;
+            padding: 7px;
+        }
+
+        /*for clarity name column styles by the percentage of width */
+        .col-1-10 {
+            width: 10%;
+        }
+
+        .col-1-52 {
+            width: 52%;
+        }
+
+        .row {
+            display: table-row;
+            page-break-inside: avoid;
+        }
+
+.collapsible {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  padding: 5px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: lavender;
+}
+
+.content {
+  padding: 0 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out;
+  background-color: #ffffff;
+}#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+} 
+.legend {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .legend div {
+            display: flex;
+            align-items: center;
+        }
+
+        .legend span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .red {
+            background: #e3b0b0;
+        }
+
+        .green {
+            background: #b1edb1;
+        }footer {
+		  text-align: center;
+		  padding: 3px;
+		  background-color: gray;
+		  color: white;
+		}
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="invoiceNbr">
+            Application Code analysis Report for Trust Store
+        </div>
+        
+    </header> <Br> <Br><Br> <Br>
+ <div class="alert from">
+        <div class="alertPanel"> 
+			<a href="#1" 
+               style="text-decoration: none;" 
+                onclick="document.getElementById('1').focus(); 
+				document.getElementById('1').click(); 
+				return false;">SpringBoot
+			</a>
+</div>
+        <div class="fromtocontent">
+            <span>52</span><br />
+        </div>
+    </div>
+<div class="fromto from">
+        <div class="generalPanel">			<a href="#4" 
+               style="text-decoration: none;" 
+                onclick="document.getElementById('4').focus(); 
+				document.getElementById('4').click(); 
+				return false;">Servlet
+			</a>
+</div>
+        <div class="fromtocontent">
+            <span>44</span><br />
+        </div>
+    </div>
+<div class="fromto from">
+        <div class="generalPanel">			<a href="#7" 
+               style="text-decoration: none;" 
+                onclick="document.getElementById('7').focus(); 
+				document.getElementById('7').click(); 
+				return false;">Tomcat
+			</a>
+</div>
+        <div class="fromtocontent">
+            <span>1</span><br />
+        </div>
+    </div>
+<div class="fromto from">
+        <div class="generalPanel">			<a href="#12" 
+               style="text-decoration: none;" 
+                onclick="document.getElementById('12').focus(); 
+				document.getElementById('12').click(); 
+				return false;">Database TX
+			</a>
+</div>
+        <div class="fromtocontent">
+            <span>86</span><br />
+        </div>
+    </div>
+<div class="alert from">
+        <div class="alertPanel"> 
+			<a href="#14" 
+               style="text-decoration: none;" 
+                onclick="document.getElementById('14').focus(); 
+				document.getElementById('14').click(); 
+				return false;">JNDI
+			</a>
+</div>
+        <div class="fromtocontent">
+            <span>3</span><br />
+        </div>
+    </div>
+<div class="fromto from">
+        <div class="generalPanel">			<a href="#19" 
+               style="text-decoration: none;" 
+                onclick="document.getElementById('19').focus(); 
+				document.getElementById('19').click(); 
+				return false;">REST API
+			</a>
+</div>
+        <div class="fromtocontent">
+            <span>138</span><br />
+        </div>
+    </div>
+<div class="fromto from">
+        <div class="generalPanel">			<a href="#21" 
+               style="text-decoration: none;" 
+                onclick="document.getElementById('21').focus(); 
+				document.getElementById('21').click(); 
+				return false;">Cron/Quartz
+			</a>
+</div>
+        <div class="fromtocontent">
+            <span>10</span><br />
+        </div>
+    </div>
+<div class="fromto from">
+        <div class="generalPanel">			<a href="#23" 
+               style="text-decoration: none;" 
+                onclick="document.getElementById('23').focus(); 
+				document.getElementById('23').click(); 
+				return false;">File Handling
+			</a>
+</div>
+        <div class="fromtocontent">
+            <span>29</span><br />
+        </div>
+    </div>
+<div class="fromto from">
+        <div class="generalPanel">			<a href="#26" 
+               style="text-decoration: none;" 
+                onclick="document.getElementById('26').focus(); 
+				document.getElementById('26').click(); 
+				return false;">email Handling
+			</a>
+</div>
+        <div class="fromtocontent">
+            <span>26</span><br />
+        </div>
+    </div>
+
+<button class="collapsible">
+	<p style="color:green; font-size:20px; font-family:Courier;"> Complexity Analysis for Trust Store </p> 
+	</button> 
+<div class="content"> 
+ <BR>
+<b>The Complixity of the Project is : <font color='red'>Double Complex</font></b><BR><BR><table id="customers"> 
+  <tr>
+    <th>File Extensions Present in the Project</th>
+    <th>File Count</th>
+    <th>Lines of Code Count (US)</th>
+    <th>Lines of Code Count (in K)</th>
+  </tr><tr>
+  <td>eot</td>
+  <td>6</td>
+  <td>0</td>
+  <td>0.0</td>
+</tr>
+<tr>
+  <td>pack</td>
+  <td>2</td>
+  <td>0</td>
+  <td>0.0</td>
+</tr>
+<tr>
+  <td>woff</td>
+  <td>6</td>
+  <td>0</td>
+  <td>0.0</td>
+</tr>
+<tr>
+  <td>woff2</td>
+  <td>3</td>
+  <td>0</td>
+  <td>0.0</td>
+</tr>
+<tr>
+  <td>idx</td>
+  <td>2</td>
+  <td>0</td>
+  <td>0.0</td>
+</tr>
+<tr>
+  <td>name</td>
+  <td>1</td>
+  <td>1</td>
+  <td>1.0</td>
+</tr>
+<tr>
+  <td>11</td>
+  <td>2</td>
+  <td>3</td>
+  <td>3.0</td>
+</tr>
+<tr>
+  <td>MF</td>
+  <td>1</td>
+  <td>6</td>
+  <td>6.0</td>
+</tr>
+<tr>
+  <td>cmd</td>
+  <td>1</td>
+  <td>182</td>
+  <td>182.0</td>
+</tr>
+<tr>
+  <td>xml</td>
+  <td>6</td>
+  <td>587</td>
+  <td>587.0</td>
+</tr>
+<tr>
+  <td>scss</td>
+  <td>6</td>
+  <td>882</td>
+  <td>882.0</td>
+</tr>
+<tr>
+  <td>json</td>
+  <td>24</td>
+  <td>954</td>
+  <td>954.0</td>
+</tr>
+<tr>
+  <td>txt</td>
+  <td>19</td>
+  <td>2,074</td>
+  <td>2.074K</td>
+</tr>
+<tr>
+  <td>sql</td>
+  <td>18</td>
+  <td>6,216</td>
+  <td>6.216K</td>
+</tr>
+<tr>
+  <td>ts</td>
+  <td>240</td>
+  <td>13,149</td>
+  <td>13.149K</td>
+</tr>
+<tr>
+  <td>java</td>
+  <td>209</td>
+  <td>22,634</td>
+  <td>22.634K</td>
+</tr>
+<tr>
+  <td>html</td>
+  <td>279</td>
+  <td>115,518</td>
+  <td>115.518K</td>
+</tr>
+<tr>
+  <td>css</td>
+  <td>510</td>
+  <td>396,078</td>
+  <td>396.078K</td>
+</tr>
+<tr>
+  <td>js</td>
+  <td>2,655</td>
+  <td>856,572</td>
+  <td>856.572K</td>
+</tr>
+<tr>
+  <td>Total</td>
+  <td>3,990</td>
+  <td>1,414,856</td>
+  <td>1,414.856K</td>
+</tr>
+</table> 
+</div> 
+<button class="collapsible"> 
+	<p style="color:green; font-size:20px; font-family:Courier;"> Analysis & Design: Migration Approach </p> 
+	</button> 
+<div class="content">
+ <BR>
+<b> Suggestion on General</b><BR><BR>
+<ul> 
+<li style="color:#303030; font-size:15px; font-family:Arial, Helvetica, sans-serif;"> In PCF application runs in a container, so <u><i>SpringBoot</i></u> is the best suit for PCF Environment, the cloud version of the code will use <u><i>SpringBoot</i></u> as well.</li> 
+<li style="color:#303030; font-size:15px; font-family:Arial, Helvetica, sans-serif;"> <u><i>Tomcat</i></u> Apps are best fit for PCF cloud.</li> 
+<li style="color:#303030; font-size:15px; font-family:Arial, Helvetica, sans-serif;"> <u><i>REST API</i></u> is a good fit in PCF Container.</li> 
+<li style="color:#303030; font-size:15px; font-family:Arial, Helvetica, sans-serif;"> Email Feature is available in PCF, but it will use a different SMTP host.</li> 
+</ul> 
+ <BR>
+<b> Suggestion on Rewrite</b><BR><BR>
+<ul> 
+<li style="color:#303030; font-size:15px; font-family:Arial, Helvetica, sans-serif;"> As the Application will be running in container, we can't have the <u><i>JNDI</i></u> config in the servers, It has to be migrated to Hikari Connection Pool'.</li> 
+<li style="color:#303030; font-size:15px; font-family:Arial, Helvetica, sans-serif;"> If the application has <u><i>Cron/Quartz</i></u>, Auto scaling is not possible. There has to be some rewrite to segrigate the Batch Portion.</li> 
+<li style="color:#303030; font-size:15px; font-family:Arial, Helvetica, sans-serif;"> If the application is Writing/Reading files in the Physical server, in PCF it should be NAS/HCP etc, So a portion of refactor has to be done.</li> 
+</ul> 
+ <BR>
+<b> Suggestion on Refactor</b><BR><BR>
+<ul> 
+<li style="color:#303030; font-size:15px; font-family:Arial, Helvetica, sans-serif;"> Plain Java <u><i>Servlet</i></u> Application can run in PCF, but needs refactor.</li> 
+</ul> 
+ <BR>
+<b> Suggestion on Risk</b><BR><BR>
+<ul> 
+<li style="color:#303030; font-size:15px; font-family:Arial, Helvetica, sans-serif;"> <u><i>Database TX</i></u> can be possible in PCF/TAS, need to make sure there is fault tolerance.</li> 
+</ul> 
+</div> 
+<button class="collapsible">
+	<p style="color:green; font-size:20px; font-family:Courier;"> Disposition Analysis for Trust Store </p> 
+	</button> 
+<div class="content"> 
+ <BR> <table>
+	<tr>
+		<td> 
+         <table id="customers"> 
+           <tr>
+             <th>Category</th>
+             <th>Complexity Score</th>
+             <th>Count</th>
+           </tr><tr>
+  <td>General</td>
+  <td>0.0</td>
+  <td>4</td>
+</tr>
+<tr>
+  <td>Risk</td>
+  <td>0.0</td>
+  <td>1</td>
+</tr>
+<tr>
+  <td>Refactor</td>
+  <td>3.0</td>
+  <td>1</td>
+</tr>
+<tr>
+  <td>Rewrite</td>
+  <td>9.0</td>
+  <td>3</td>
+</tr>
+</table>
+ </td> 
+<td> 
+		<div class="pie-chart"></div>  
+		<div class="legend"> 
+			<div>				<span class="green"></span>Refactor : 10% 
+			</div> 
+			<div> 
+				<span class="red"></span>ReWrite : 90% 
+			</div> 
+		</div> 
+</td> 
+</tr> 
+</Table> 
+
+<BR><BR><BR> <b>The Disposition of the Project is : <font color='Green'>Double Complex:</font>10% Refactor &  90% Rewrite </b><BR><BR><style>
+        .pie-chart {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #e3b0b0 0% 96% ,
+                #b1edb1 96% 10%
+            );
+        }
+    </style></div><button class="collapsible"   id="1">
+	<p style="color:black; font-size:20px; font-family:Courier;"> Rule No : 1:Search if the application is a SpringBoot App </p> 
+	</button> 
+<div class="content"> 
+<section class="items"> 
+<div class="row">
+            <div class="col-1-10 panel">
+                Java Files
+            </div>
+            <div class="col-1-52 panel">
+                Matches
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\pom.xml</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 6--> 		&lt;groupId&gt;<mark>org.springframework.boot</mark>&lt;&#x2F;groupId&gt;</i></p><p style="color:#303030;"><i>Line 26--> 			&lt;groupId&gt;<mark>org.springframework.boot</mark>&lt;&#x2F;groupId&gt;</i></p><p style="color:#303030;"><i>Line 30--> 			&lt;groupId&gt;<mark>org.springframework.boot</mark>&lt;&#x2F;groupId&gt;</i></p><p style="color:#303030;"><i>Line 35--> 			&lt;groupId&gt;<mark>org.springframework.boot</mark>&lt;&#x2F;groupId&gt;</i></p><p style="color:#303030;"><i>Line 42--> 			&lt;groupId&gt;<mark>org.springframework.boot</mark>&lt;&#x2F;groupId&gt;</i></p><p style="color:#303030;"><i>Line 49--> 		  &lt;groupId&gt;<mark>org.springframework.boot</mark>&lt;&#x2F;groupId&gt;</i></p><p style="color:#303030;"><i>Line 60-->             &lt;groupId&gt;<mark>org.springframework.boot</mark>&lt;&#x2F;groupId&gt;</i></p><p style="color:#303030;"><i>Line 72--> 			&lt;groupId&gt;<mark>org.springframework.boot</mark>&lt;&#x2F;groupId&gt;</i></p><p style="color:#303030;"><i>Line 84--> 		&lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;<mark>org.springframework.boot</mark>&#x2F;spring-boot-devtools --&gt;</i></p><p style="color:#303030;"><i>Line 86--> 		    &lt;groupId&gt;<mark>org.springframework.boot</mark>&lt;&#x2F;groupId&gt;</i></p><p style="color:#303030;"><i>Line 170--> 				&lt;groupId&gt;<mark>org.springframework.boot</mark>&lt;&#x2F;groupId&gt;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\CustomErrorController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 4--> import <mark>org.springframework.boot</mark>.web.servlet.error.ErrorController;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\JosthiApplication.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 3--> import <mark>org.springframework.boot</mark>.SpringApplication;</i></p><p style="color:#303030;"><i>Line 4--> import <mark>org.springframework.boot</mark>.autoconfigure.SpringBootApplication;</i></p><p style="color:#303030;"><i>Line 5--> import <mark>org.springframework.boot</mark>.context.properties.EnableConfigurationProperties;</i></p><p style="color:#303030;"><i>Line 13--> <mark>@SpringBootApplication</mark></i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\mail\EmailController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 7--> import <mark>org.springframework.boot</mark>.ApplicationArguments;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\mail\SpringBootEmailTemplateApplication.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 9--> import <mark>org.springframework.boot</mark>.ApplicationArguments;</i></p><p style="color:#303030;"><i>Line 10--> import <mark>org.springframework.boot</mark>.ApplicationRunner;</i></p><p style="color:#303030;"><i>Line 11--> import <mark>org.springframework.boot</mark>.SpringApplication;</i></p><p style="color:#303030;"><i>Line 12--> import <mark>org.springframework.boot</mark>.autoconfigure.SpringBootApplication;</i></p><p style="color:#303030;"><i>Line 18--> &#x2F;&#x2F;<mark>@SpringBootApplication</mark></i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\ServletInitializer.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 3--> import <mark>org.springframework.boot</mark>.builder.SpringApplicationBuilder;</i></p><p style="color:#303030;"><i>Line 4--> import <mark>org.springframework.boot</mark>.web.servlet.support.SpringBootServletInitializer;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\springconfig\FileStorageProperties.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 3--> import <mark>org.springframework.boot</mark>.context.properties.ConfigurationProperties;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>Matching File Name Found</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i><mark>application-dev.properties</mark></i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>Matching File Name Found</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i><mark>application-local.properties</mark></i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>Matching File Name Found</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i><mark>application-prod.properties</mark></i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>Matching File Name Found</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i><mark>application-qa.properties</mark></i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>Matching File Name Found</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i><mark>application.properties</mark></i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\test\java\com\josthi\web\JosthiApplicationTests.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 4--> import <mark>org.springframework.boot</mark>.test.context.SpringBootTest;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>Matching File Name Found</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i><mark>application-dev.properties</mark></i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>Matching File Name Found</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i><mark>application-local.properties</mark></i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>Matching File Name Found</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i><mark>application-prod.properties</mark></i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>Matching File Name Found</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i><mark>application-qa.properties</mark></i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>Matching File Name Found</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i><mark>application.properties</mark></i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>Matching File Name Found</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i><mark>application-dev.properties</mark></i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>Matching File Name Found</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i><mark>application-local.properties</mark></i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>Matching File Name Found</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i><mark>application-prod.properties</mark></i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>Matching File Name Found</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i><mark>application-qa.properties</mark></i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>Matching File Name Found</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i><mark>application.properties</mark></i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\target\m2e-wtp\web-resources\META-INF\maven\com.josthi\josthi\pom.xml</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 6--> 		&lt;groupId&gt;<mark>org.springframework.boot</mark>&lt;&#x2F;groupId&gt;</i></p><p style="color:#303030;"><i>Line 26--> 			&lt;groupId&gt;<mark>org.springframework.boot</mark>&lt;&#x2F;groupId&gt;</i></p><p style="color:#303030;"><i>Line 30--> 			&lt;groupId&gt;<mark>org.springframework.boot</mark>&lt;&#x2F;groupId&gt;</i></p><p style="color:#303030;"><i>Line 35--> 			&lt;groupId&gt;<mark>org.springframework.boot</mark>&lt;&#x2F;groupId&gt;</i></p><p style="color:#303030;"><i>Line 42--> 			&lt;groupId&gt;<mark>org.springframework.boot</mark>&lt;&#x2F;groupId&gt;</i></p><p style="color:#303030;"><i>Line 49--> 		  &lt;groupId&gt;<mark>org.springframework.boot</mark>&lt;&#x2F;groupId&gt;</i></p><p style="color:#303030;"><i>Line 60-->             &lt;groupId&gt;<mark>org.springframework.boot</mark>&lt;&#x2F;groupId&gt;</i></p><p style="color:#303030;"><i>Line 72--> 			&lt;groupId&gt;<mark>org.springframework.boot</mark>&lt;&#x2F;groupId&gt;</i></p><p style="color:#303030;"><i>Line 84--> 		&lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;<mark>org.springframework.boot</mark>&#x2F;spring-boot-devtools --&gt;</i></p><p style="color:#303030;"><i>Line 86--> 		    &lt;groupId&gt;<mark>org.springframework.boot</mark>&lt;&#x2F;groupId&gt;</i></p><p style="color:#303030;"><i>Line 170--> 				&lt;groupId&gt;<mark>org.springframework.boot</mark>&lt;&#x2F;groupId&gt;</i></p>
+            </div>
+        </div> 
+</div></section><button class="collapsible"   id="4">
+	<p style="color:black; font-size:20px; font-family:Courier;"> Rule No : 4:Search if the application is a Java/Servlet App </p> 
+	</button> 
+<div class="content"> 
+<section class="items"> 
+<div class="row">
+            <div class="col-1-10 panel">
+                Java Files
+            </div>
+            <div class="col-1-52 panel">
+                Matches
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\AdminActionController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 5--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\AdminManageTickerController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 7--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\AgentAccountSettingsController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 3--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\AgentProfileManagementController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 3--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\AgentRegistrationController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 6--> import <mark>javax.servlet</mark>.http.HttpSession;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\EmailImageController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 5--> import <mark>javax.servlet</mark>.http.HttpServletResponse;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\EmergencyContactController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 5--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\FeedbackController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 5--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p><p style="color:#303030;"><i>Line 6--> import <mark>javax.servlet</mark>.http.HttpSession;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\FileWikiController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 8--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\ProfileAndDetailViewerController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 5--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\rest\AssignAgentByAdminController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 6--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\rest\ProfilePictureController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 23--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p><p style="color:#303030;"><i>Line 24--> import <mark>javax.servlet</mark>.http.HttpServletResponse;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\rest\ReSendOtpEmail.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 6--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\rest\UserBuyPlanController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 6--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\rest\UserGeneralQueryController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 6--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\rest\UserPreferencesCheckBox.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 6--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\rest\UserServiceRequestRestController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 8--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p><p style="color:#303030;"><i>Line 9--> import <mark>javax.servlet</mark>.http.HttpServletResponse;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\SpringSessionController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 5--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p><p style="color:#303030;"><i>Line 6--> import <mark>javax.servlet</mark>.http.HttpSession;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\UserAuthController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 7--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p><p style="color:#303030;"><i>Line 8--> import <mark>javax.servlet</mark>.http.HttpSession;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\UserBeneficiaryController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 8--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p><p style="color:#303030;"><i>Line 9--> import <mark>javax.servlet</mark>.http.HttpSession;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\UserDetailsController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 2-->  import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\UserLoginAndSecurityController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 3--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\UserPlanSelectionController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 7--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\UserPreferenceController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 5--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\UserPurchaseHistoryController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 5--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\UserRegistrationController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 6--> import <mark>javax.servlet</mark>.http.HttpSession;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\UserServiceRequestController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 7--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\WebPageImageController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 5--> import <mark>javax.servlet</mark>.http.HttpServletResponse;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\exception\RestGlobalExceptionHandler.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 11--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p><p style="color:#303030;"><i>Line 34-->         Integer statusCode = (Integer) request.getAttribute(&quot;<mark>javax.servlet</mark>.error.status_code&quot;);</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\interceptor\MainInterceptor.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 3--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p><p style="color:#303030;"><i>Line 4--> import <mark>javax.servlet</mark>.http.HttpServletResponse;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\interceptor\ProductServiceInterceptor.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 3--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p><p style="color:#303030;"><i>Line 4--> import <mark>javax.servlet</mark>.http.HttpServletResponse;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\MainController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 10--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p><p style="color:#303030;"><i>Line 11--> import <mark>javax.servlet</mark>.http.HttpServletResponse;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\utils\ValidateSession.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 3--> import <mark>javax.servlet</mark>.http.HttpServletRequest;</i></p><p style="color:#303030;"><i>Line 4--> import <mark>javax.servlet</mark>.http.HttpSession;</i></p>
+            </div>
+        </div> 
+</div></section><button class="collapsible"   id="7">
+	<p style="color:black; font-size:20px; font-family:Courier;"> Rule No : 7:Check if the application runs on Tomcat </p> 
+	</button> 
+<div class="content"> 
+<section class="items"> 
+<div class="row">
+            <div class="col-1-10 panel">
+                Java Files
+            </div>
+            <div class="col-1-52 panel">
+                Matches
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\rest\UserServiceRequestRestController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 12--> import <mark>org.apache.tomcat</mark>.util.json.JSONParser;</i></p>
+            </div>
+        </div> 
+</div></section><button class="collapsible"   id="12">
+	<p style="color:black; font-size:20px; font-family:Courier;"> Rule No : 12:Check if the application is using Database TX </p> 
+	</button> 
+<div class="content"> 
+<section class="items"> 
+<div class="row">
+            <div class="col-1-10 panel">
+                Java Files
+            </div>
+            <div class="col-1-52 panel">
+                Matches
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\serviceimpl\BeneficiaryServiceImpl.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 9--> import org.springframework.transaction.Platform<mark>TransactionManager</mark>;</i></p><p style="color:#303030;"><i>Line 29--> 	private Platform<mark>TransactionManager</mark> platformTransactionManager;</i></p><p style="color:#303030;"><i>Line 31--> 	public void setPlatform<mark>TransactionManager</mark>(PlatformTransactionMan<mark>ager platformTrans</mark>actionManager) {</i></p><p style="color:#303030;"><i>Line 32--> 		this.platform<mark>TransactionManager</mark> = platformTransactionManager;</i></p><p style="color:#303030;"><i>Line 77--> 			def.setIsolationLevel(TransactionDefinition.ISOLATION_READ_<mark>COMMIT</mark>TED);</i></p><p style="color:#303030;"><i>Line 79--> 				txnStatus = platform<mark>TransactionManager</mark>.getTransaction(def);</i></p><p style="color:#303030;"><i>Line 120--> 				platformTransactionManager.<mark>commit</mark>(txnStatus);</i></p><p style="color:#303030;"><i>Line 126--> 			platformTransactionManager.<mark>rollback</mark>(txnStatus);</i></p><p style="color:#303030;"><i>Line 141--> 			def.setIsolationLevel(TransactionDefinition.ISOLATION_READ_<mark>COMMIT</mark>TED);</i></p><p style="color:#303030;"><i>Line 143--> 				txnStatus = platform<mark>TransactionManager</mark>.getTransaction(def);</i></p><p style="color:#303030;"><i>Line 170--> 				platformTransactionManager.<mark>commit</mark>(txnStatus);</i></p><p style="color:#303030;"><i>Line 176--> 			platformTransactionManager.<mark>rollback</mark>(txnStatus);</i></p><p style="color:#303030;"><i>Line 210--> 			def.setIsolationLevel(TransactionDefinition.ISOLATION_READ_<mark>COMMIT</mark>TED);</i></p><p style="color:#303030;"><i>Line 212--> 				txnStatus = platform<mark>TransactionManager</mark>.getTransaction(def);</i></p><p style="color:#303030;"><i>Line 236--> 				platformTransactionManager.<mark>commit</mark>(txnStatus);</i></p><p style="color:#303030;"><i>Line 242--> 			platformTransactionManager.<mark>rollback</mark>(txnStatus);</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\serviceimpl\PlanAndBenefitServiceImpl.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 17--> import org.springframework.transaction.Platform<mark>TransactionManager</mark>;</i></p><p style="color:#303030;"><i>Line 53--> 	private Platform<mark>TransactionManager</mark> platformTransactionManager;</i></p><p style="color:#303030;"><i>Line 55--> 	public Platform<mark>TransactionManager</mark> getPlatformTransactionManager() {</i></p><p style="color:#303030;"><i>Line 56--> 		return platform<mark>TransactionManager</mark>;</i></p><p style="color:#303030;"><i>Line 59--> 	public void setPlatform<mark>TransactionManager</mark>(PlatformTransactionMan<mark>ager platformTrans</mark>actionManager) {</i></p><p style="color:#303030;"><i>Line 60--> 		this.platform<mark>TransactionManager</mark> = platformTransactionManager;</i></p><p style="color:#303030;"><i>Line 515--> 		boolean <mark>rollback</mark>Needed = false;</i></p><p style="color:#303030;"><i>Line 524--> 				<mark>rollback</mark>Needed = false;</i></p><p style="color:#303030;"><i>Line 530--> 				<mark>rollback</mark>Needed = false;</i></p><p style="color:#303030;"><i>Line 536--> 				<mark>rollback</mark>Needed = false;</i></p><p style="color:#303030;"><i>Line 548--> 				<mark>rollback</mark>Needed = false;</i></p><p style="color:#303030;"><i>Line 571--> 			def.setIsolationLevel(TransactionDefinition.ISOLATION_READ_<mark>COMMIT</mark>TED);</i></p><p style="color:#303030;"><i>Line 573--> 					<mark>rollback</mark>Needed = true;</i></p><p style="color:#303030;"><i>Line 574--> 				    txnStatus = platform<mark>TransactionManager</mark>.getTransaction(def);</i></p><p style="color:#303030;"><i>Line 618--> 					platformTransactionManager.<mark>commit</mark>(txnStatus);</i></p><p style="color:#303030;"><i>Line 625--> 			if(<mark>rollback</mark>Needed) {</i></p><p style="color:#303030;"><i>Line 626--> 				platformTransactionManager.<mark>rollback</mark>(txnStatus);</i></p><p style="color:#303030;"><i>Line 632--> 			platformTransactionManager.<mark>rollback</mark>(txnStatus);</i></p><p style="color:#303030;"><i>Line 948--> 				&#x2F;&#x2F;<mark>rollback</mark>Needed = false;</i></p><p style="color:#303030;"><i>Line 954--> 				&#x2F;&#x2F;<mark>rollback</mark>Needed = false;</i></p><p style="color:#303030;"><i>Line 960--> 				&#x2F;&#x2F;<mark>rollback</mark>Needed = false;</i></p><p style="color:#303030;"><i>Line 972--> 				&#x2F;&#x2F;<mark>rollback</mark>Needed = false;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\serviceimpl\ServiceRequestServiceImpl.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 11--> import org.springframework.transaction.Platform<mark>TransactionManager</mark>;</i></p><p style="color:#303030;"><i>Line 36--> 	private Platform<mark>TransactionManager</mark> platformTransactionManager;</i></p><p style="color:#303030;"><i>Line 38--> 	public Platform<mark>TransactionManager</mark> getPlatformTransactionManager() {</i></p><p style="color:#303030;"><i>Line 39--> 		return platform<mark>TransactionManager</mark>;</i></p><p style="color:#303030;"><i>Line 42--> 	public void setPlatform<mark>TransactionManager</mark>(PlatformTransactionMan<mark>ager platformTrans</mark>actionManager) {</i></p><p style="color:#303030;"><i>Line 43--> 		this.platform<mark>TransactionManager</mark> = platformTransactionManager;</i></p><p style="color:#303030;"><i>Line 134--> 			def.setIsolationLevel(TransactionDefinition.ISOLATION_READ_<mark>COMMIT</mark>TED);</i></p><p style="color:#303030;"><i>Line 136--> 					txnStatus = platform<mark>TransactionManager</mark>.getTransaction(def);</i></p><p style="color:#303030;"><i>Line 164--> 					platformTransactionManager.<mark>commit</mark>(txnStatus);</i></p><p style="color:#303030;"><i>Line 172--> 			platformTransactionManager.<mark>rollback</mark>(txnStatus);</i></p><p style="color:#303030;"><i>Line 177--> 			platformTransactionManager.<mark>rollback</mark>(txnStatus);</i></p><p style="color:#303030;"><i>Line 206--> 			def.setIsolationLevel(TransactionDefinition.ISOLATION_READ_<mark>COMMIT</mark>TED);</i></p><p style="color:#303030;"><i>Line 208--> 					txnStatus = platform<mark>TransactionManager</mark>.getTransaction(def);</i></p><p style="color:#303030;"><i>Line 228--> 					platformTransactionManager.<mark>commit</mark>(txnStatus);</i></p><p style="color:#303030;"><i>Line 236--> 			platformTransactionManager.<mark>rollback</mark>(txnStatus);</i></p><p style="color:#303030;"><i>Line 241--> 			platformTransactionManager.<mark>rollback</mark>(txnStatus);</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\serviceimpl\UserRegistrationServiceImpl.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 7--> import org.springframework.transaction.Platform<mark>TransactionManager</mark>;</i></p><p style="color:#303030;"><i>Line 23--> 	private Platform<mark>TransactionManager</mark> platformTransactionManager;</i></p><p style="color:#303030;"><i>Line 45--> 			def.setIsolationLevel(TransactionDefinition.ISOLATION_READ_<mark>COMMIT</mark>TED);</i></p><p style="color:#303030;"><i>Line 47--> 				txnStatus = platform<mark>TransactionManager</mark>.getTransaction(def);</i></p><p style="color:#303030;"><i>Line 64--> 				platformTransactionManager.<mark>commit</mark>(txnStatus);</i></p><p style="color:#303030;"><i>Line 70--> 			platformTransactionManager.<mark>rollback</mark>(txnStatus);</i></p><p style="color:#303030;"><i>Line 77--> 	public Platform<mark>TransactionManager</mark> getPlatformTransactionManager() {</i></p><p style="color:#303030;"><i>Line 78--> 		return platform<mark>TransactionManager</mark>;</i></p><p style="color:#303030;"><i>Line 81--> 	public void setPlatform<mark>TransactionManager</mark>(PlatformTransactionMan<mark>ager platformTrans</mark>actionManager) {</i></p><p style="color:#303030;"><i>Line 82--> 		this.platform<mark>TransactionManager</mark> = platformTransactionManager;</i></p><p style="color:#303030;"><i>Line 97--> 			def.setIsolationLevel(TransactionDefinition.ISOLATION_READ_<mark>COMMIT</mark>TED);</i></p><p style="color:#303030;"><i>Line 99--> 				txnStatus = platform<mark>TransactionManager</mark>.getTransaction(def);</i></p><p style="color:#303030;"><i>Line 112--> 				platformTransactionManager.<mark>commit</mark>(txnStatus);</i></p><p style="color:#303030;"><i>Line 118--> 			platformTransactionManager.<mark>rollback</mark>(txnStatus);</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\springconfig\SpringConfig.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 13--> import org.springframework.jdbc.datasource.DataSource<mark>TransactionManager</mark>;</i></p><p style="color:#303030;"><i>Line 16--> import org.springframework.transaction.Platform<mark>TransactionManager</mark>;</i></p><p style="color:#303030;"><i>Line 284-->  public BeneficiaryServiceImpl beneficiaryServiceImpl(Platform<mark>TransactionManager</mark> txnManager) {</i></p><p style="color:#303030;"><i>Line 286--> 	 beneficiaryServiceImpl.setPlatform<mark>TransactionManager</mark>(txnManager);</i></p><p style="color:#303030;"><i>Line 292-->  public UserRegistrationServiceImpl userRegistrationServiceImpl(Platform<mark>TransactionManager</mark> txnManager) {</i></p><p style="color:#303030;"><i>Line 294--> 	 userRegistrationServiceImpl.setPlatform<mark>TransactionManager</mark>(txnManager);</i></p><p style="color:#303030;"><i>Line 300-->  public ServiceRequestServiceImpl serviceRequestServiceImpl(Platform<mark>TransactionManager</mark> txnManager) {</i></p><p style="color:#303030;"><i>Line 302--> 	 serviceRequestServiceImpl.setPlatform<mark>TransactionManager</mark>(txnManager);</i></p><p style="color:#303030;"><i>Line 308-->  public PlanAndBenefitServiceImpl planAndBenefitServiceImpl(Platform<mark>TransactionManager</mark> txnManager) {</i></p><p style="color:#303030;"><i>Line 310--> 	 planAndBenefitServiceImpl.setPlatform<mark>TransactionManager</mark>(txnManager);</i></p><p style="color:#303030;"><i>Line 315-->  public DataSource<mark>TransactionManager</mark> txnManager(DataSource josthiDataSource) {</i></p><p style="color:#303030;"><i>Line 316--> 	 DataSource<mark>TransactionManager</mark> txnManager =  n<mark>ew DataSourceTrans</mark>actionManager();</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\resources\Help\Git_Help.txt</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 3--> help on GIT <mark>commit</mark> : https:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;30421875&#x2F;cant-connect-to-any-uri<mark>-error</mark>-while-commiting-code-from-eclipse-to-git-reposito</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\resources\static\vendor\jquery-ui\.bower.json</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 17-->     &quot;<mark>commit</mark>&quot;: &quot;44ecf3794cc56b65954cc19737234a3119d036cc&quot;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\target\classes\Help\Git_Help.txt</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 3--> help on GIT <mark>commit</mark> : https:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;30421875&#x2F;cant-connect-to-any-uri<mark>-error</mark>-while-commiting-code-from-eclipse-to-git-reposito</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\target\classes\static\vendor\jquery-ui\.bower.json</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 17-->     &quot;<mark>commit</mark>&quot;: &quot;44ecf3794cc56b65954cc19737234a3119d036cc&quot;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\target\josthi-0.0.1\WEB-INF\classes\Help\Git_Help.txt</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 3--> help on GIT <mark>commit</mark> : https:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;30421875&#x2F;cant-connect-to-any-uri<mark>-error</mark>-while-commiting-code-from-eclipse-to-git-reposito</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\target\josthi-0.0.1\WEB-INF\classes\static\vendor\jquery-ui\.bower.json</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 17-->     &quot;<mark>commit</mark>&quot;: &quot;44ecf3794cc56b65954cc19737234a3119d036cc&quot;</i></p>
+            </div>
+        </div> 
+</div></section><button class="collapsible"   id="14">
+	<p style="color:black; font-size:20px; font-family:Courier;"> Rule No : 14:Check if the application is using JNDI for DB Connection </p> 
+	</button> 
+<div class="content"> 
+<section class="items"> 
+<div class="row">
+            <div class="col-1-10 panel">
+                Java Files
+            </div>
+            <div class="col-1-52 panel">
+                Matches
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\daoimpl\UserDetailsDaoImpl.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 8--> import <mark>javax.sql.DataSource</mark>;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\security\SecurityConfig.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 3--> import <mark>javax.sql.DataSource</mark>;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\springconfig\SpringConfig.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 50--> import <mark>javax.sql.DataSource</mark>;</i></p>
+            </div>
+        </div> 
+</div></section><button class="collapsible"   id="19">
+	<p style="color:black; font-size:20px; font-family:Courier;"> Rule No : 19:Check if the application is using REST API Calls </p> 
+	</button> 
+<div class="content"> 
+<section class="items"> 
+<div class="row">
+            <div class="col-1-10 panel">
+                Java Files
+            </div>
+            <div class="col-1-52 panel">
+                Matches
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\AdminActionController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 36--> 	<mark>@GetMapping</mark>(&quot;&#x2F;admin&#x2F;adminActionAssignAgents&quot;)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\AdminManageTickerController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 44--> 	<mark>@GetMapping</mark>(&quot;&#x2F;admin&#x2F;viewTicketRequest&quot;)</i></p><p style="color:#303030;"><i>Line 95--> 	<mark>@RequestMapping</mark>(path =&quot;&#x2F;admin&#x2F;searchTicket&#x2F;{custId}&quot;, method = RequestMethod.POST)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\AgentAccountSettingsController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 45--> 		<mark>@GetMapping</mark>(&quot;&#x2F;agentAdmin&#x2F;settings&quot;)</i></p><p style="color:#303030;"><i>Line 91--> 		<mark>@RequestMapping</mark>(path =&quot;&#x2F;agentAdmin&#x2F;changePassword&#x2F;{custId}&quot;, method = RequestMethod.POST)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\AgentProfileManagementController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 38--> 	<mark>@GetMapping</mark>(&quot;&#x2F;admin&#x2F;profile&quot;)</i></p><p style="color:#303030;"><i>Line 89-->     <mark>@RequestMapping</mark>(path =&quot;&#x2F;admin&#x2F;profileUpdate&#x2F;{custId}&quot;, method = RequestMethod.POST)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\AgentRegistrationController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 49--> 		<mark>@GetMapping</mark>(&quot;&#x2F;forAgents&quot;)</i></p><p style="color:#303030;"><i>Line 55--> 		<mark>@RequestMapping</mark>(path =&quot;&#x2F;registerAgent&quot;, method = RequestMethod.POST)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\CacheConfigDataController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 48--> 	<mark>@GetMapping</mark>(&quot;&#x2F;refresh&quot;)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\CustomErrorController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 17-->  <mark>@RequestMapping</mark>(value = PATH)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\EmailImageController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 23--> 		<mark>@RequestMapping</mark>(value = &quot;&#x2F;josthiLogo&quot;, method = RequestMethod.GET,</i></p><p style="color:#303030;"><i>Line 35--> 		<mark>@RequestMapping</mark>(value = &quot;&#x2F;button&quot;, method = RequestMethod.GET,</i></p><p style="color:#303030;"><i>Line 44--> 		<mark>@RequestMapping</mark>(value = &quot;&#x2F;header&quot;, method = RequestMethod.GET,</i></p><p style="color:#303030;"><i>Line 53--> 		<mark>@RequestMapping</mark>(value = &quot;&#x2F;headerBanner&quot;, method = RequestMethod.GET,</i></p><p style="color:#303030;"><i>Line 66--> 		<mark>@RequestMapping</mark>(value = &quot;&#x2F;basicMedical&quot;, method = RequestMethod.GET,</i></p><p style="color:#303030;"><i>Line 76--> 		<mark>@RequestMapping</mark>(value = &quot;&#x2F;emailLanding&quot;, method = RequestMethod.GET,</i></p><p style="color:#303030;"><i>Line 84--> 		<mark>@RequestMapping</mark>(value = &quot;&#x2F;emergency&quot;, method = RequestMethod.GET,</i></p><p style="color:#303030;"><i>Line 92--> 		<mark>@RequestMapping</mark>(value = &quot;&#x2F;icoFacebook&quot;, method = RequestMethod.GET,</i></p><p style="color:#303030;"><i>Line 100--> 		<mark>@RequestMapping</mark>(value = &quot;&#x2F;icoInstagram&quot;, method = RequestMethod.GET,</i></p><p style="color:#303030;"><i>Line 108--> 		<mark>@RequestMapping</mark>(value = &quot;&#x2F;icoLinkedin&quot;, method = RequestMethod.GET,</i></p><p style="color:#303030;"><i>Line 116--> 		<mark>@RequestMapping</mark>(value = &quot;&#x2F;icoTwitter&quot;, method = RequestMethod.GET,</i></p><p style="color:#303030;"><i>Line 124--> 		<mark>@RequestMapping</mark>(value = &quot;&#x2F;regularService&quot;, method = RequestMethod.GET,</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\EmergencyContactController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 43--> 	<mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;emergencyContacts&quot;)</i></p><p style="color:#303030;"><i>Line 83--> 	<mark>@RequestMapping</mark>(path =&quot;&#x2F;user&#x2F;saveEmergencyContact&#x2F;{custId}&quot;, method = RequestMethod.POST)</i></p><p style="color:#303030;"><i>Line 140--> 	<mark>@RequestMapping</mark>(&quot;&#x2F;user&#x2F;deleteEmergencyContact&#x2F;{contactId}&quot;)</i></p><p style="color:#303030;"><i>Line 168--> 	<mark>@RequestMapping</mark>(&quot;&#x2F;user&#x2F;editEmergencyContact&#x2F;{contactId}&quot;)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\FeedbackController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 44--> 	<mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;feedback&quot;)</i></p><p style="color:#303030;"><i>Line 100--> 	<mark>@RequestMapping</mark>(path =&quot;&#x2F;user&#x2F;saveFeedbackForAgent&#x2F;{custId}&quot;, method = RequestMethod.POST)</i></p><p style="color:#303030;"><i>Line 145--> 	<mark>@RequestMapping</mark>(path =&quot;&#x2F;user&#x2F;saveFeedbackForJosthi&#x2F;{custId}&quot;, method = RequestMethod.POST)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\FileWikiController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 48--> 	<mark>@GetMapping</mark>(&quot;&#x2F;admin&#x2F;wiki&quot;)</i></p><p style="color:#303030;"><i>Line 55--> 	<mark>@GetMapping</mark>(&quot;&#x2F;admin&#x2F;adminWiki&quot;)</i></p><p style="color:#303030;"><i>Line 63--> 	<mark>@PostMapping</mark>(&quot;&#x2F;uploadFileInWiki&quot;)</i></p><p style="color:#303030;"><i>Line 72--> 	<mark>@PostMapping</mark>(&quot;&#x2F;admin&#x2F;uploadFileInWiki&quot;)</i></p><p style="color:#303030;"><i>Line 83--> 	<mark>@GetMapping</mark>(&quot;&#x2F;downloadFile&#x2F;{fileName:.+}&quot;)</i></p><p style="color:#303030;"><i>Line 122--> 	<mark>@RequestMapping</mark>(value = &quot;&#x2F;getProfileImage&#x2F;{customerID}&quot;)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\ProfileAndDetailViewerController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 48-->     <mark>@GetMapping</mark>(&quot;&#x2F;common&#x2F;viewProfileUser&#x2F;{userID}&quot;)</i></p><p style="color:#303030;"><i>Line 86-->     <mark>@GetMapping</mark>(&quot;&#x2F;common&#x2F;viewBeneficiaryList&#x2F;{userID}&quot;)</i></p><p style="color:#303030;"><i>Line 128-->     <mark>@GetMapping</mark>(&quot;&#x2F;common&#x2F;viewEmergencyContact&#x2F;{userID}&quot;)</i></p><p style="color:#303030;"><i>Line 168-->     <mark>@GetMapping</mark>(&quot;&#x2F;common&#x2F;viewProfileBeneficiary&#x2F;{userID}&quot;)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\rest\AssignAgentByAdminController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 30--> <mark>@RestController</mark></i></p><p style="color:#303030;"><i>Line 46--> 	<mark>@RequestMapping</mark>(value = &quot;&#x2F;updateAgentForBeneficiary&quot;, method = RequestMethod.POST)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\rest\ProfilePictureController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 37--> <mark>@RestController</mark></i></p><p style="color:#303030;"><i>Line 50--> 	<mark>@RequestMapping</mark>(value = &quot;&#x2F;userProfilePic&quot;, method = RequestMethod.POST)</i></p><p style="color:#303030;"><i>Line 80--> 	<mark>@RequestMapping</mark>(value = &quot;&#x2F;deleteProfilePic&quot;, method = RequestMethod.POST)</i></p><p style="color:#303030;"><i>Line 102-->     <mark>@RequestMapping</mark>(&quot;&#x2F;viewUserPhoto&quot;)</i></p><p style="color:#303030;"><i>Line 142-->     <mark>@PostMapping</mark>(&quot;&#x2F;userProfilePicSample&quot;)</i></p><p style="color:#303030;"><i>Line 160-->     <mark>@GetMapping</mark>(&quot;&#x2F;downloadFile_____&#x2F;{fileName:.+}&quot;)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\rest\ReSendOtpEmail.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 35--> <mark>@RestController</mark></i></p><p style="color:#303030;"><i>Line 52--> 	<mark>@RequestMapping</mark>(value = &quot;&#x2F;resendOTP&quot;, method = RequestMethod.POST)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\rest\UserBuyPlanController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 34--> <mark>@RestController</mark></i></p><p style="color:#303030;"><i>Line 57--> 	<mark>@RequestMapping</mark>(value = &quot;&#x2F;getPlanAndPriceBreakupOnSelectedCriteria&quot;, </i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\rest\UserGeneralQueryController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 30--> <mark>@RestController</mark></i></p><p style="color:#303030;"><i>Line 44--> 	<mark>@RequestMapping</mark>(value = &quot;&#x2F;addUserQuery&quot;, method = RequestMethod.POST)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\rest\UserPreferencesCheckBox.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 28--> <mark>@RestController</mark></i></p><p style="color:#303030;"><i>Line 37--> 	<mark>@RequestMapping</mark>(value = &quot;&#x2F;saveUserPreferences&quot;, method = RequestMethod.POST)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\rest\UserServiceRequestRestController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 51--> <mark>@RestController</mark></i></p><p style="color:#303030;"><i>Line 75--> 	<mark>@RequestMapping</mark>(value = &quot;&#x2F;addNotesToTicket&quot;, method = RequestMethod.POST)</i></p><p style="color:#303030;"><i>Line 168--> 	 * <mark>@RequestMapping</mark>(value = &quot;&#x2F;populateServiceTypeForBeneficiary1&quot;, method =</i></p><p style="color:#303030;"><i>Line 216-->     <mark>@RequestMapping</mark>(value = &quot;&#x2F;populateServiceTypeForBeneficiary&quot;, </i></p><p style="color:#303030;"><i>Line 291-->     <mark>@RequestMapping</mark>(value = &quot;&#x2F;populateServiceListOnServiceType&quot;, </i></p><p style="color:#303030;"><i>Line 380-->     <mark>@RequestMapping</mark>(value = &quot;&#x2F;getServicePriceOnSelectedService&quot;, </i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\SpringSessionController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 25--> 	 * <mark>@GetMapping</mark>(&quot;&#x2F;&quot;) public String process(Model model, HttpSession session) {</i></p><p style="color:#303030;"><i>Line 34--> 	<mark>@PostMapping</mark>(&quot;&#x2F;persistMessage&quot;)</i></p><p style="color:#303030;"><i>Line 47--> 	<mark>@GetMapping</mark>(&quot;&#x2F;destroy&quot;)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\UserAuthController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 74--> 	<mark>@GetMapping</mark>(&quot;&#x2F;login&quot;)</i></p><p style="color:#303030;"><i>Line 97--> 	<mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;home&quot;)</i></p><p style="color:#303030;"><i>Line 143--> 	<mark>@RequestMapping</mark>(path =&quot;&#x2F;validateAuthenticity&quot;, method = RequestMethod.POST)</i></p><p style="color:#303030;"><i>Line 328--> 	<mark>@RequestMapping</mark>(path =&quot;&#x2F;validateOtp&quot;, method = RequestMethod.POST)</i></p><p style="color:#303030;"><i>Line 393--> 	<mark>@GetMapping</mark>(&quot;&#x2F;unlock&#x2F;{emailID}&quot;)</i></p><p style="color:#303030;"><i>Line 427--> 	<mark>@GetMapping</mark>(&quot;&#x2F;accountRecovery&quot;)</i></p><p style="color:#303030;"><i>Line 434--> 	<mark>@GetMapping</mark>(&quot;&#x2F;accountRecoveryController&quot;)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\UserBeneficiaryController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 53--> 	<mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;getBeneficiaryList&quot;)</i></p><p style="color:#303030;"><i>Line 109--> 	<mark>@RequestMapping</mark>(path =&quot;&#x2F;user&#x2F;savebeneficiaryDetails&#x2F;{custId}&quot;, method = RequestMethod.POST)</i></p><p style="color:#303030;"><i>Line 165--> 	<mark>@RequestMapping</mark>(&quot;&#x2F;user&#x2F;deleteBeneficiaryDetail&#x2F;{beneficiaryID}&quot;)</i></p><p style="color:#303030;"><i>Line 195--> 	<mark>@RequestMapping</mark>(&quot;&#x2F;user&#x2F;editBeneficiaryDetail&#x2F;{beneficiaryID}&quot;)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\UserDetailsController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 44-->     <mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;profile&quot;)</i></p><p style="color:#303030;"><i>Line 87-->     <mark>@RequestMapping</mark>(path =&quot;&#x2F;user&#x2F;userProfileUpdate&#x2F;{custId}&quot;, method = RequestMethod.POST)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\UserLoginAndSecurityController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 48--> 	<mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;loginAndsecurity&quot;)</i></p><p style="color:#303030;"><i>Line 101--> 	<mark>@RequestMapping</mark>(path =&quot;&#x2F;user&#x2F;changePassword&#x2F;{custId}&quot;, method = RequestMethod.POST)</i></p><p style="color:#303030;"><i>Line 159--> 	<mark>@RequestMapping</mark>(path =&quot;&#x2F;user&#x2F;validateOtp&quot;, method = RequestMethod.POST)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\UserPlanSelectionController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 57--> 	<mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;subscribePlan&quot;)</i></p><p style="color:#303030;"><i>Line 145--> 	<mark>@RequestMapping</mark>(path =&quot;&#x2F;user&#x2F;buyPlan&#x2F;{custId}&quot;, method = RequestMethod.POST)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\UserPreferenceController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 43--> 	<mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;preferences&quot;)</i></p><p style="color:#303030;"><i>Line 96--> 	<mark>@RequestMapping</mark>(path =&quot;&#x2F;user&#x2F;saveUserPref&#x2F;{custId}&quot;, method = RequestMethod.POST)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\UserPurchaseHistoryController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 45--> 	<mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;purchaseHistory&quot;)</i></p><p style="color:#303030;"><i>Line 121--> 	<mark>@RequestMapping</mark>(path =&quot;&#x2F;user&#x2F;planPurchaseHistory&#x2F;{planId}&quot;, method = RequestMethod.GET)</i></p><p style="color:#303030;"><i>Line 186--> 	<mark>@RequestMapping</mark>(path =&quot;&#x2F;user&#x2F;servicePurchaseHistory&#x2F;{ticketId}&quot;, method = RequestMethod.GET)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\UserRegistrationController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 49--> 		<mark>@GetMapping</mark>(&quot;&#x2F;userSignup&quot;)</i></p><p style="color:#303030;"><i>Line 56--> 		<mark>@RequestMapping</mark>(path =&quot;&#x2F;registerGeneralUser&quot;, method = RequestMethod.POST)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\UserServiceRequestController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 57--> 	<mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;requestService&quot;)</i></p><p style="color:#303030;"><i>Line 163--> 	<mark>@RequestMapping</mark>(path =&quot;&#x2F;user&#x2F;createServiceTicket&#x2F;{custId}&quot;, method = RequestMethod.POST)</i></p><p style="color:#303030;"><i>Line 241--> 	<mark>@RequestMapping</mark>(path =&quot;&#x2F;user&#x2F;ticketHistory&#x2F;{ticket}&quot;, method = RequestMethod.GET)</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\WebPageImageController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 20--> 	<mark>@RequestMapping</mark>(value = &quot;&#x2F;josthiLogoFooter&quot;, method = RequestMethod.GET,</i></p><p style="color:#303030;"><i>Line 35--> 	<mark>@RequestMapping</mark>(value = &quot;&#x2F;josthiVerifiedUserIcon&quot;, method = RequestMethod.GET,</i></p><p style="color:#303030;"><i>Line 46--> 	<mark>@RequestMapping</mark>(value = &quot;&#x2F;josthiHeaderBanner&quot;, method = RequestMethod.GET,</i></p><p style="color:#303030;"><i>Line 59--> 	<mark>@RequestMapping</mark>(value = &quot;&#x2F;profileBackground&quot;, method = RequestMethod.GET,</i></p><p style="color:#303030;"><i>Line 74--> 			<mark>@RequestMapping</mark>(value = &quot;&#x2F;basicPlan&quot;, method = RequestMethod.GET,</i></p><p style="color:#303030;"><i>Line 82--> 			<mark>@RequestMapping</mark>(value = &quot;&#x2F;silverPlan&quot;, method = RequestMethod.GET,</i></p><p style="color:#303030;"><i>Line 90--> 			<mark>@RequestMapping</mark>(value = &quot;&#x2F;goldPlan&quot;, method = RequestMethod.GET,</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\MainController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 60--> 	<mark>@GetMapping</mark>(&quot;&#x2F;&quot;)</i></p><p style="color:#303030;"><i>Line 67--> 	<mark>@GetMapping</mark>(&quot;&#x2F;howItWork&quot;)</i></p><p style="color:#303030;"><i>Line 73--> 	<mark>@GetMapping</mark>(&quot;&#x2F;knowUs&quot;)</i></p><p style="color:#303030;"><i>Line 79--> 	<mark>@GetMapping</mark>(&quot;&#x2F;comingSoon&quot;)</i></p><p style="color:#303030;"><i>Line 94--> 	<mark>@RequestMapping</mark>(path =&quot;&#x2F;saveEmail&quot;, method = RequestMethod.POST)</i></p><p style="color:#303030;"><i>Line 139--> 	<mark>@GetMapping</mark>(&quot;&#x2F;contactUs&quot;)</i></p><p style="color:#303030;"><i>Line 154--> 	<mark>@RequestMapping</mark>(path =&quot;&#x2F;saveCustomerQuery&quot;, method = RequestMethod.POST)</i></p><p style="color:#303030;"><i>Line 226--> 	<mark>@GetMapping</mark>(&quot;&#x2F;searchLawyers&quot;)</i></p><p style="color:#303030;"><i>Line 235--> 	 * <mark>@GetMapping</mark>(&quot;&#x2F;test&quot;) public String test(Model model) {</i></p><p style="color:#303030;"><i>Line 240--> 	<mark>@GetMapping</mark>(&quot;&#x2F;pricing&quot;)</i></p><p style="color:#303030;"><i>Line 251--> 	<mark>@GetMapping</mark>(&quot;&#x2F;onDemandService&quot;)</i></p><p style="color:#303030;"><i>Line 260--> 	<mark>@GetMapping</mark>(&quot;&#x2F;planDetails&quot;)</i></p><p style="color:#303030;"><i>Line 311--> 	<mark>@GetMapping</mark>(&quot;&#x2F;faq&quot;)</i></p><p style="color:#303030;"><i>Line 318--> 	<mark>@GetMapping</mark>(&quot;&#x2F;terms&quot;)</i></p><p style="color:#303030;"><i>Line 325--> 	<mark>@GetMapping</mark>(&quot;&#x2F;privacy&quot;)</i></p><p style="color:#303030;"><i>Line 332--> 	<mark>@GetMapping</mark>(&quot;&#x2F;userHomePage&quot;)</i></p><p style="color:#303030;"><i>Line 340--> 	<mark>@GetMapping</mark>(&quot;&#x2F;userPersonalDetails&quot;)</i></p><p style="color:#303030;"><i>Line 347--> 	 * <mark>@GetMapping</mark>(value = &quot;&#x2F;image&quot;) public @ResponseBody byte[] getImage() throws</i></p><p style="color:#303030;"><i>Line 361--> 	 * <mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;home&quot;) public String userHome(Model model) { return</i></p><p style="color:#303030;"><i>Line 366--> 	 * <mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;profile&quot;) public String userProfile(Model model) { return</i></p><p style="color:#303030;"><i>Line 372--> 	 * <mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;beneficiaryDetails&quot;) public String</i></p><p style="color:#303030;"><i>Line 378--> 	&#x2F;*<mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;emergencyContacts&quot;)</i></p><p style="color:#303030;"><i>Line 385--> 	 * <mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;loginAndsecurity&quot;) public String</i></p><p style="color:#303030;"><i>Line 392--> 	 * <mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;preferences&quot;) public String userPreferences(Model model) {</i></p><p style="color:#303030;"><i>Line 398--> 	 * <mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;subscribePlan&quot;) public String userSubscribePlan(Model</i></p><p style="color:#303030;"><i>Line 403--> 	&#x2F;*<mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;purchaseHistory&quot;)</i></p><p style="color:#303030;"><i>Line 410--> 	 * <mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;requestService&quot;) public String userRequestService(Model</i></p><p style="color:#303030;"><i>Line 415--> 	<mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;reports&quot;)</i></p><p style="color:#303030;"><i>Line 422--> 	<mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;documents&quot;)</i></p><p style="color:#303030;"><i>Line 428--> 	&#x2F;*<mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;feedback&quot;)</i></p><p style="color:#303030;"><i>Line 433--> 	<mark>@GetMapping</mark>(&quot;&#x2F;user&#x2F;ticketHistory&quot;)</i></p><p style="color:#303030;"><i>Line 444--> 	<mark>@GetMapping</mark>(&quot;&#x2F;admin&#x2F;home&quot;)</i></p><p style="color:#303030;"><i>Line 450--> 	 * <mark>@GetMapping</mark>(&quot;&#x2F;agentAdmin&#x2F;profile&quot;) public String agentAdminProfile(Model</i></p><p style="color:#303030;"><i>Line 455--> 	 * <mark>@GetMapping</mark>(&quot;&#x2F;agentAdmin&#x2F;settings&quot;) public String agentAdminSettings(Model</i></p><p style="color:#303030;"><i>Line 459--> 	<mark>@GetMapping</mark>(&quot;&#x2F;agentAdmin&#x2F;contactRepo&quot;)</i></p><p style="color:#303030;"><i>Line 465--> 	 * <mark>@GetMapping</mark>(&quot;&#x2F;admin&#x2F;viewTicketRequest&quot;) public String</i></p><p style="color:#303030;"><i>Line 470--> 	<mark>@GetMapping</mark>(&quot;&#x2F;agentAdmin&#x2F;searchUser&quot;)</i></p><p style="color:#303030;"><i>Line 476--> 	 * <mark>@GetMapping</mark>(&quot;&#x2F;common&#x2F;viewProfile&quot;) public String viewProfile(Model model) {</i></p>
+            </div>
+        </div> 
+</div></section><button class="collapsible"   id="21">
+	<p style="color:black; font-size:20px; font-family:Courier;"> Rule No : 21:Check if the application has Cron/Quartz Batch </p> 
+	</button> 
+<div class="content"> 
+<section class="items"> 
+<div class="row">
+            <div class="col-1-10 panel">
+                Java Files
+            </div>
+            <div class="col-1-52 panel">
+                Matches
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\scheduler\AccountUnlockScheduler.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 26--> 		<mark>@Scheduled</mark>(cron=CRON_EXPRESSION, zone = ZONE) </i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\scheduler\EmailScheduler.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 43--> 	<mark>@Scheduled</mark>(cron=CRON_EXPRESSION_EMAIL) </i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\scheduler\NextIDRollOverScheduler.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 29--> 	<mark>@Scheduled</mark>(cron=CRON_EXPRESSION, zone = ZONE) </i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\scheduler\Scheduler.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 11--> 	<mark>@Scheduled</mark>(cron=&quot;0&#x2F;5 * * * * ?&quot;) </i></p><p style="color:#303030;"><i>Line 16--> 	<mark>@Scheduled</mark>(cron=&quot;0&#x2F;10 * * * * ?&quot;) </i></p><p style="color:#303030;"><i>Line 21--> 	<mark>@Scheduled</mark>(cron=&quot;0&#x2F;15 * * * * ?&quot;) </i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\serviceimpl\SchedulerServiceImpl.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 79--> 		CronSequenceGenerator <mark>cronTrigger</mark> = new CronSequenceGenerator(cronExpression);</i></p><p style="color:#303030;"><i>Line 80-->         Date next = <mark>cronTrigger</mark>.next(new Date());</i></p><p style="color:#303030;"><i>Line 130--> 		CronSequenceGenerator <mark>cronTrigger</mark> = new CronSequenceGenerator(cronExpression);</i></p><p style="color:#303030;"><i>Line 131-->         Date next = <mark>cronTrigger</mark>.next(new Date());</i></p>
+            </div>
+        </div> 
+</div></section><button class="collapsible"   id="23">
+	<p style="color:black; font-size:20px; font-family:Courier;"> Rule No : 23:Check if the application has File Handling </p> 
+	</button> 
+<div class="content"> 
+<section class="items"> 
+<div class="row">
+            <div class="col-1-10 panel">
+                Java Files
+            </div>
+            <div class="col-1-52 panel">
+                Matches
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\.mvn\wrapper\MavenWrapperDownloader.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 58-->             <mark>FileInputStream</mark> mavenWr<mark>apperPropertyFi</mark>leInputStream = null;</i></p><p style="color:#303030;"><i>Line 60-->                 mavenWrapperProperty<mark>FileInputStream</mark> = new FileInputStream(mavenWrapperPropertyFile);</i></p><p style="color:#303030;"><i>Line 62-->                 mavenWrapperProperties.load(mavenWrapperProperty<mark>FileInputStream</mark>);</i></p><p style="color:#303030;"><i>Line 68-->                     if(mavenWrapperProperty<mark>FileInputStream</mark> != null) {</i></p><p style="color:#303030;"><i>Line 69-->                         mavenWrapperProperty<mark>FileInputStream</mark>.close();</i></p><p style="color:#303030;"><i>Line 111-->         <mark>FileOutputStream</mark> fos = new FileOutputStream(destination);</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\FileWikiController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 5--> import <mark>java.nio.file.Files</mark>;</i></p><p style="color:#303030;"><i>Line 27--> import org.springframework.web.multipart.<mark>MultipartFile</mark>;</i></p><p style="color:#303030;"><i>Line 64-->     public String uploadFileInWiki(@RequestParam(&quot;file&quot;) <mark>MultipartFile</mark> file,</i></p><p style="color:#303030;"><i>Line 73-->     public String adminUploadFileInWiki(@RequestParam(&quot;file&quot;) <mark>MultipartFile</mark> file,</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\controller\rest\ProfilePictureController.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 14--> import org.springframework.web.multipart.<mark>MultipartFile</mark>;</i></p><p style="color:#303030;"><i>Line 27--> import java.io.<mark>FileInputStream</mark>;</i></p><p style="color:#303030;"><i>Line 32--> import <mark>java.nio.file.Files</mark>;</i></p><p style="color:#303030;"><i>Line 51-->     public ResponseEntity&lt;String&gt; userProfilePic(@RequestParam(&quot;file&quot;) <mark>MultipartFile</mark> file,</i></p><p style="color:#303030;"><i>Line 112-->             in = new <mark>FileInputStream</mark>(filename); &#x2F;&#x2F; I assume files are at &#x2F;tmp</i></p><p style="color:#303030;"><i>Line 143-->     public UploadFileResponse uploadFile(@RequestParam(&quot;file&quot;) <mark>MultipartFile</mark> file,</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\service\FileStorageService.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 4--> import org.springframework.web.multipart.<mark>MultipartFile</mark>;</i></p><p style="color:#303030;"><i>Line 8--> 	String storeFile(<mark>MultipartFile</mark> file);</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\service\FileWikiService.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 8--> import org.springframework.web.multipart.<mark>MultipartFile</mark>;</i></p><p style="color:#303030;"><i>Line 16--> 	&#x2F;&#x2F;String storeFile(<mark>MultipartFile</mark> file);</i></p><p style="color:#303030;"><i>Line 18--> 	List&lt;FileWikiPO&gt; saveFileInServer(<mark>MultipartFile</mark> file, FileWikiPO fileWikiPO);</i></p><p style="color:#303030;"><i>Line 22--> 	String updateProfilePicture(<mark>MultipartFile</mark> file, String customerID, String emailID);</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\serviceimpl\FileStorageServiceImpl.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 11--> import org.springframework.web.multipart.<mark>MultipartFile</mark>;</i></p><p style="color:#303030;"><i>Line 20--> import <mark>java.nio.file.Files</mark>;</i></p><p style="color:#303030;"><i>Line 44-->     public String storeFile(<mark>MultipartFile</mark> file) {</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\serviceimpl\FileWikiServiceImpl.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 7--> import <mark>java.nio.file.Files</mark>;</i></p><p style="color:#303030;"><i>Line 22--> import org.springframework.web.multipart.<mark>MultipartFile</mark>;</i></p><p style="color:#303030;"><i>Line 83--> 	public List&lt;FileWikiPO&gt; saveFileInServer(<mark>MultipartFile</mark> file, FileWikiPO fileWikiPO) {</i></p><p style="color:#303030;"><i>Line 142--> 	public String updateProfilePicture(<mark>MultipartFile</mark> file, String customerID, String emailID) {</i></p>
+            </div>
+        </div> 
+</div></section><button class="collapsible"   id="26">
+	<p style="color:black; font-size:20px; font-family:Courier;"> Rule No : 26:Check if the application has email Capability </p> 
+	</button> 
+<div class="content"> 
+<section class="items"> 
+<div class="row">
+            <div class="col-1-10 panel">
+                Java Files
+            </div>
+            <div class="col-1-52 panel">
+                Matches
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\pom.xml</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 111--> 			&lt;groupId&gt;<mark>javax.mail</mark>&lt;&#x2F;groupId&gt;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\mail\EmailSenderService.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 6--> import <mark>javax.mail</mark>.MessagingException;</i></p><p style="color:#303030;"><i>Line 7--> import <mark>javax.mail</mark>.internet.MimeMessage;</i></p><p style="color:#303030;"><i>Line 11--> import org.springframework.mail.javamail.<mark>JavaMailSender</mark>;</i></p><p style="color:#303030;"><i>Line 12--> import org.springframework.mail.javamail.<mark>MimeMessage</mark>Helper;</i></p><p style="color:#303030;"><i>Line 22-->     private <mark>JavaMailSender</mark> emailSender;</i></p><p style="color:#303030;"><i>Line 30-->         <mark>MimeMessage</mark> message = email<mark>Sender.crea</mark>teMimeMessage();</i></p><p style="color:#303030;"><i>Line 31-->         <mark>MimeMessage</mark>Helper <mark>helper = ne</mark>w MimeMessageHelper(message,</i></p><p style="color:#303030;"><i>Line 32-->                 <mark>MimeMessage</mark>Helper.MULTIPART_MODE_MIXED_RELATED,</i></p><p style="color:#303030;"><i>Line 52-->     &#x2F;&#x2F;public void setEmailSender(<mark>JavaMailSender</mark> emailSender) {</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\springconfig\SpringConfig.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 14--> import org.springframework.mail.javamail.<mark>JavaMailSender</mark>;</i></p><p style="color:#303030;"><i>Line 15--> import org.springframework.mail.javamail.<mark>JavaMailSender</mark>Impl;</i></p><p style="color:#303030;"><i>Line 328--> 	 * @Bean(&quot;<mark>javaMailSender</mark>&q<mark>uot;) public J</mark>avaMailSenderImpl javaMailSenderImpl(</i></p><p style="color:#303030;"><i>Line 357--> 	 * <mark>JavaMailSender</mark>Impl javaMail<mark>Sender = new J</mark>avaMailSenderImpl();</i></p><p style="color:#303030;"><i>Line 358--> 	 * <mark>javaMailSender</mark>.setDefaultEncoding(defaultEncoding);</i></p><p style="color:#303030;"><i>Line 359--> 	 * <mark>javaMailSender</mark>.se<mark>tHost(host); j</mark>avaMailSender.setUsername(username);</i></p><p style="color:#303030;"><i>Line 360--> 	 * <mark>javaMailSender</mark>.setPasswor<mark>d(password); j</mark>avaMailSender.setPort(port);</i></p><p style="color:#303030;"><i>Line 361--> 	 * <mark>javaMailSender</mark>.setProtocol(protocol);</i></p><p style="color:#303030;"><i>Line 363--> 	 * Properties prop = <mark>javaMailSender</mark>.getJavaMailProperties();</i></p><p style="color:#303030;"><i>Line 365--> 	 * prop.put(&quot;<mark>mail.smtp.port</mark>&quot;,port+&quot;&quot;); prop.put(&quot;mail.smtp.auth&quot;, smptAuth);</i></p><p style="color:#303030;"><i>Line 371--> 	 * return <mark>javaMailSender</mark>; }</i></p><p style="color:#303030;"><i>Line 414--> 	 * emailSenderService(<mark>JavaMailSender</mark>Impl javaMailSender) {</i></p><p style="color:#303030;"><i>Line 417--> 	 * emailSenderService.setEmailSender(<mark>javaMailSender</mark>);</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\src\main\java\com\josthi\web\utils\Utils.java</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 19--> import <mark>javax.mail</mark>.internet.AddressException;</i></p><p style="color:#303030;"><i>Line 20--> import <mark>javax.mail</mark>.internet.InternetAddress;</i></p>
+            </div>
+        </div> 
+<div class="row">
+            <div class="col-1-10">
+                <p style="color:#303030;"><i>C:\Users\susov\eclipse-workspace\josthi\target\m2e-wtp\web-resources\META-INF\maven\com.josthi\josthi\pom.xml</i></p>
+            </div>
+            <div class="col-1-52">
+                <p style="color:#303030;"><i>Line 111--> 			&lt;groupId&gt;<mark>javax.mail</mark>&lt;&#x2F;groupId&gt;</i></p>
+            </div>
+        </div> 
+</div></section><script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
+}
+</script><footer>
+  <p>Author: Susovan Gumtya | 
+  <a href="mailto:susovan2006@gmail.com">susovan2006@gmail.com</a></p>
+</footer>
+</body>
+</html>

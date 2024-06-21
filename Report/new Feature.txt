@@ -1,0 +1,211 @@
+	            //***********************************************************************************
+		        // SECTION FOR A&D SECTION
+		        //***********************************************************************************
+		        String analysisAndDesignSection = "";
+		        if(isAnalysisAndDesignSectionEnabled.equals(isAnalysisAndDesignSectionEnabled)) {
+		        	
+		        	Utility.printAnalysisAndDesignConsole();
+		        	
+		        	Reader analysisReader = new FileReader(pathForAnalysisAndDesignTemplate);
+				    AnalysisDocumentSet analysisRulesetSet = gson.fromJson(analysisReader, AnalysisDocumentSet.class);
+				    
+				    //for(AnalysisDocument AnalysisDocument : analysisRulesetSet)
+				    analysisAndDesignSection = Utility.generateHTMLForAnalaysisAndDesign(analysisRulesetSet.getAnalysisDocSet(), summaryBeans);
+				    //System.out.println(analysisAndDesignSection);
+		        }
+			    
+		            
+		            
+		            
+	            outPutReport.append(Utility.generateHtmlEndReport());
+	            
+                String summerySection = Utility.generateSummery(summaryBeans);
+                String report = outPutReport.toString();
+                
+                //String finalReport = Utility.generateFinalReport(summerySection,report);
+                String reportWithComplexitySection = Utility.generateFinalReport(summerySection,report);
+                String finalReport = Utility.generateFinalReportWithAnalysis(reportWithComplexitySection,
+                																analysisAndDesignSection, 
+                																isAnalysisAndDesignSectionEnabled);
+
+
+
+
+PropertyReader.java
+===================
+isAnalysisAndDesignSectionEnabled = prop.getProperty("is.code.analysis.design.enabled");
+pathForAnalysisAndDesignTemplate = prop.getProperty("analysis.design.template.file.location");
+
+
+AnalysisDocumentSet.java
+=======================
+package com.susovan.codeanalizer.main;
+
+import java.util.List;
+
+public class AnalysisDocumentSet {
+	
+	private String analysisDocVersionNo;
+    private String analysisDocAuthor;
+    private String analysisDocLastUpdateDate;
+    private String analysisDocDescription;
+    private List<Analysis> analysisDocSet;
+
+	public static class Analysis {
+        private int analysisNo;
+        private boolean isAnalysisDisplayEnabled;
+        private String analysisTechKey;
+        private String analysisTechDesc;
+        private String analysisTechSuggestion;
+   
+    }
+
+}
+
+Utility.java
+================
+public static void printStartupBanner() throws InterruptedException {
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		TimeUnit.SECONDS.sleep(1);
+		System.out.println("  ####       ##    ##########");
+		TimeUnit.MILLISECONDS.sleep(300);
+        System.out.println(" #    *     ## #       ##");
+        TimeUnit.MILLISECONDS.sleep(300);
+        System.out.println("#          ##   #      ##   ####  ####  #");
+        TimeUnit.MILLISECONDS.sleep(300);
+        System.out.println("#         #######      ##   #  #  #  #  #");
+        TimeUnit.MILLISECONDS.sleep(300);
+        System.out.println(" #    *  ##      #     ##   #  #  #  #  #   #");
+        TimeUnit.MILLISECONDS.sleep(300);
+        System.out.println("  ####  ##        #    ##   ####  ####  ####");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println("");
+		System.out.println("");
+		System.out.println("");
+	}
+	public static void printComplexityAnalysisConsole() {
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("**********************************************************");
+ 		System.out.println("   Section 1 :   Complexity Analysis Section			  ");
+ 		System.out.println("**********************************************************");
+ 		System.out.println("");
+ 		System.out.println("Step 1 --> Searching in the Project for File Extensions......");
+		
+	}
+
+
+	public static void printRuleSetDetailsConsole(Ruleset ruleset) {
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("___________________________________________________________");
+ 		System.out.println(".     RULES SET VERSION : "+ruleset.getRulesetVersion());
+ 		System.out.println(".     RULES SET UPDATE DATE : "+ruleset.getRulesetUpdateDate());
+ 		System.out.println(".     RULES SET AUTHOR : "+ruleset.getRulesetAuthor());
+ 		System.out.println(".     RULES SET DESCRIPTION : "+ruleset.getRulesetVersion());
+ 		System.out.println("___________________________________________________________");
+		
+	}
+
+
+	public static void printAnalysisAndDesignConsole() {
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("**********************************************************");
+ 		System.out.println("   Section 3 :   Analysis and Design Section			  ");
+ 		System.out.println("**********************************************************");
+ 		System.out.println("");
+ 		System.out.println("Step 1 --> Generating the Cloud Migration Suggestions.......");
+		
+	}
+
+
+	public static String generateHTMLForAnalaysisAndDesign(List<Analysis> analysisDocSet,
+															List<SummaryBean> summaryBeans) {
+		List<String> matchedAnalysisSuggestions = new ArrayList<>();
+
+
+		for (SummaryBean summeryBean : summaryBeans) {
+            String ruleType = summeryBean.getRuleType();
+
+            for (Analysis analysis : analysisDocSet) {
+                if (analysis.getAnalysisTechKey().equalsIgnoreCase(ruleType)) {
+                	matchedAnalysisSuggestions.add(analysis.getAnalysisTechSuggestion());
+                }
+            }
+        }
+
+        return formatAnalysisSection(matchedAnalysisSuggestions);
+
+	}
+	
+	private static String formatAnalysisSection(List<String> suggestionList) {
+		
+		
+		StringBuffer sb = new StringBuffer();
+		sb.append("<button class=\"collapsible\"> \r\n"); 
+		sb.append("	<p style=\"color:green; font-size:20px; font-family:Courier;\"> Analysis & Design: Migration Approach </p> \r\n");
+		sb.append("	</button> \r\n"); 
+		sb.append("<div class=\"content\">\r\n"); 
+		sb.append(" <BR>\r\n"); 
+		sb.append("<b>Migration Approach<b/><BR><BR>\r\n");
+		sb.append("<ul> \r\n");
+		for(String suggestion : suggestionList) {
+			sb.append("<li style=\"color:#303030; font-size:15px; font-family:Arial, Helvetica, sans-serif;\"> "+suggestion+"</li> \r\n");
+		}
+		sb.append("</ul> \r\n");
+		sb.append("</div> \r\n");
+		
+		return sb.toString();
+	}
+	
+	
+
+	public static String generateFinalReportWithAnalysis(String partialReport, String analysisAndDesignSection,
+			String isAnalysisAndDesignSectionEnabled) {
+		if(isAnalysisAndDesignSectionEnabled.equalsIgnoreCase("true")) {
+			return replaceString("*********SummarySestion***********",partialReport, analysisAndDesignSection );
+		}else {
+			return replaceString("*********SummarySestion***********",partialReport, "" );
+		}
+		
+	}
+
+JSON Format
+============
+{
+    "analysisDocVersionNo": "1.0",
+    "analysisDocAuthor": "",
+    "analysisDocLastUpdateDate": "2022-01-01",
+    "analysisDocDescription": "This Document is to provide the Technology suggestions for PCF",
+	"analysisDocSet" : [
+		{
+			"analysisNo": 1,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "SpringBoot",
+			"analysisTechDesc": "SpringBoot in PCF",
+			"analysisTechSuggestion": "In PCF application runs in a container, so SpringBoot is the best suit for PCF Environment, the cloud version of the code will use SpringBoot as well."
+		},
+		{
+			"analysisNo": 2,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Rest Controller",
+			"analysisTechDesc": "Rest Controller in PCF",
+			"analysisTechSuggestion": "REST Controller is supported in PCF, so we will continue to use the REST API calls."
+		},
+		{
+			"analysisNo": 3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "email",
+			"analysisTechDesc": "email implementation in PCF",
+			"analysisTechSuggestion": "Email Feature is available in PCF, but it will use a different SMTP host."
+		}		
+	]
+    
+}																				

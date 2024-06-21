@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.bar {
+  width: 0;
+  height: 20px;
+  text-align: right;
+  transition: width 2s;
+  margin-bottom: 2px;
+}
+
+.bar span {
+  padding-right: 10px;
+  color: white;
+}
+
+.red { background-color: red; }
+.green { background-color: green; }
+.blue { background-color: blue; }
+.orange { background-color: orange; }
+</style>
+</head>
+<body>
+
+<div class="bar red" style="width: 50%"><span>John: 50</span></div>
+<div class="bar green" style="width: 70%"><span>Jane: 70</span></div>
+<div class="bar blue" style="width: 30%"><span>Bob: 30</span></div>
+<div class="bar orange" style="width: 90%"><span>Alice: 90</span></div>
+
+<script>
+window.onload = function() {
+  var bars = document.getElementsByClassName('bar');
+  for (var i = 0; i < bars.length; i++) {
+    bars[i].style.width = bars[i].innerText.split(': ')[1] + '%';
+  }
+}
+</script>
+
+</body>
+</html>
