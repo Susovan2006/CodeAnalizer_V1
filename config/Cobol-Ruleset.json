@@ -1,0 +1,80 @@
+{
+	"rulesetVersion": "1.0",
+    "rulesetAuthor": "Susovan Sankar Gumtya",
+    "rulesetUpdateDate": "May-19-2024",
+    "rulesetDescription": "Ruleset for Cobol Application",
+    "ruleset": [
+        {
+            "ruleNo": 1,
+            "isRuleEnabled": true,
+            "ruleType":"Database",
+            "ruleDescription": "Search if the cobol code has database connectivity",
+            "listOfSearchFileType": [".cob",".cbl"],
+            "listOfSearchString": ["EXEC SQL"],
+            "listOfSearchRegex": null,
+            "listOfSearchFilePattern": null,
+            "listOfExcludedFilePatterns" : null,
+            "isAlertEnabled": false
+        },
+        {
+            "ruleNo": 2,
+            "isRuleEnabled": true,
+            "ruleType":"Copybook usage",
+            "ruleDescription": "Search if the cobol code is using CopyBook",
+            "listOfSearchFileType": [".cob",".cbl"],
+            "listOfSearchString": ["COPY"],
+            "listOfSearchRegex": null,
+            "listOfSearchFilePattern": null,
+            "listOfExcludedFilePatterns" : null,
+            "isAlertEnabled": false
+        },
+        {
+            "ruleNo": 3,
+            "isRuleEnabled": true,
+            "ruleType":"NDM",
+            "ruleDescription": "Search if the Cobol code has any NDM dependency",
+            "listOfSearchFileType": [".cob",".cbl"],
+            "listOfSearchString": ["SIGNON NODE","SUBMIT PROC","&SNODEID"],
+            "listOfSearchRegex": null,
+            "listOfSearchFilePattern": null,
+            "listOfExcludedFilePatterns" : null,
+            "isAlertEnabled": false
+        },
+        {
+            "ruleNo": 4,
+            "isRuleEnabled": true,
+            "ruleType":"File Operation",
+            "ruleDescription": "Search if the cobol code is dealing with any File",
+            "listOfSearchFileType": [".cob",".cbl"],
+            "listOfSearchString": ["FILE-CONTROL","INPUT-OUTPUT SECTION"],
+            "listOfSearchRegex": null,
+            "listOfSearchFilePattern": null,
+            "listOfExcludedFilePatterns" : null,
+            "isAlertEnabled": false
+        },
+        {
+            "ruleNo": 5,
+            "isRuleEnabled": true,
+            "ruleType":"MQ",
+            "ruleDescription": "Check if the cobol code has any MQ dependency",
+            "listOfSearchFileType": [".cob",".cbl"],
+            "listOfSearchString": ["MQOPEN","MQPUT","MQCLOSE","MQDISC"],
+            "listOfSearchRegex": null,
+            "listOfSearchFilePattern": null,
+            "listOfExcludedFilePatterns" : null,
+            "isAlertEnabled": false
+        },
+        {
+            "ruleNo": 6,
+            "isRuleEnabled": true,
+            "ruleType":"Method Calls",
+            "ruleDescription": "Check if the Code is calling any other Cobol Program",
+            "listOfSearchFileType": [".cob",".cbl"],
+            "listOfSearchString": ["CALL","USING","LINKAGE SECTION"],
+            "listOfSearchRegex": null,
+            "listOfSearchFilePattern": null,
+            "listOfExcludedFilePatterns" : null,
+            "isAlertEnabled": false
+        }
+    ]
+}
