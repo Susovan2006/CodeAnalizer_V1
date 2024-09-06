@@ -1,0 +1,626 @@
+{
+    "analysisDocVersionNo": "1.0",
+    "analysisDocAuthor": "Susovan Sankar Gumtya",
+    "analysisDocLastUpdateDate": "2022-01-01",
+    "analysisDocDescription": "This Document is to provide the Technology suggestions for PCF",
+    "analysisDocCategory": ["general","risk","rewrite","refactor","blocker","standard","out-of-scope"],
+	"analysisDocSet" : [
+		{
+			"analysisNo": 1,
+			"complexityScore":0,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "SpringBoot",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "In PCF application runs in a container, so SpringBoot is the best suit for PCF Environment, the cloud version of the code will use SpringBoot as well."
+		},
+		{
+			"analysisNo": 2,
+			"complexityScore":0,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Spring MVC",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Spring MVC is supported in PCF."
+		},
+		{
+			"analysisNo": 3,
+			"complexityScore":0,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "EJB",
+			"analysisCategory": "blocker",
+			"analysisTechSuggestion": "EJB application is not recommended in PCF."
+		},
+		{
+			"analysisNo": 4,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Servlet",
+			"analysisCategory": "refactor",
+			"analysisTechSuggestion": "Plain Java Servlet Application can run in PCF, but needs refactor."
+		},
+		{
+			"analysisNo": 5,
+			"complexityScore":2,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "scriplets in JSP",
+			"analysisCategory": "refactor",
+			"analysisTechSuggestion": "Scriplets in JSP can go to PCF unless there is any restriction from the Organization."
+		},
+		{
+			"analysisNo": 6,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Web Sphere",
+			"analysisCategory": "refactor",
+			"analysisTechSuggestion": "EAR is not supported in PCF, so the build file has tobe re-writen to be deployed in PCF."
+		},
+		{
+			"analysisNo": 7,
+			"complexityScore":2,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "JBOSS",
+			"analysisCategory": "refactor",
+			"analysisTechSuggestion": "If the buildpack doesn't support JBOSS, minor refactor is neeed to move it to Tomcat'."
+		},
+		{
+			"analysisNo": 9,
+			"complexityScore":0,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Tomcat",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Tomcat Apps are best fit for PCF cloud."
+		},
+		{
+			"analysisNo": 10,
+			"complexityScore":0,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "WebLogic",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "If the buildpack doesn't support WebLogic, minor refactor is neeed to move it to Tomcat."
+		},
+		{
+			"analysisNo": 11,
+			"complexityScore":2,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "DB2",
+			"analysisCategory": "refactor",
+			"analysisTechSuggestion": "For DB2 minor refactor might be needed to make the app run from container. Also need to make sure, the App is not using JNDI."
+		},
+		{
+			"analysisNo": 12,
+			"complexityScore":1,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Oracle DB",
+			"analysisCategory": "refactor",
+			"analysisTechSuggestion": "For Oracle DB minor refactor might be needed to make the app run from container. Also need to make sure, the App is not using JNDI."
+		},
+		{
+			"analysisNo": 13,
+			"complexityScore":1,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Teradata DB",
+			"analysisCategory": "refactor",
+			"analysisTechSuggestion": "For Teradata DB minor refactor might be needed to make the app run from container. Also need to make sure, the App is not using JNDI."
+		},
+		{
+			"analysisNo": 14,
+			"complexityScore":1,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "MSSQL DB",
+			"analysisCategory": "refactor",
+			"analysisTechSuggestion": "For MSSQL DB minor refactor might be needed to make the app run from container. Also need to make sure, the App is not using JNDI."
+		},
+		{
+			"analysisNo": 15,
+			"complexityScore":0,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Database TX",
+			"analysisCategory": "risk",
+			"analysisTechSuggestion": "Database TX can be possible in PCF/TAS, need to make sure there is fault tolerance."
+		},
+		{
+			"analysisNo": 16,
+			"complexityScore":0,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Hibernate",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Should be compatable with PCF/TAS."
+		},
+		{
+			"analysisNo": 17,
+			"complexityScore":2,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "JNDI",
+			"analysisCategory": "rewrite",
+			"analysisTechSuggestion": "As the Application will be running in container, we can't have the JNDI config in the servers, It has to be migrated to Hikari Connection Pool'."
+		},
+		{
+			"analysisNo": 18,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Kafka",
+			"analysisCategory": "refactor",
+			"analysisTechSuggestion": "Kafka is possible in PCF, just needs to do some refactor and onboard the Kafka infrastructure."
+		},
+		{
+			"analysisNo": 19,
+			"complexityScore":2,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "IBM MQ",
+			"analysisCategory": "rewrite",
+			"analysisTechSuggestion": "IBM MQ is possible in PCF, There might be some refactor/rewtite to establist the MQ in PCF. Need to create the services in Manifest.yml."
+		},
+		{
+			"analysisNo": 20,
+			"complexityScore":2,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "IBM MQ",
+			"analysisCategory": "rewrite",
+			"analysisTechSuggestion": "JMS is possible in PCF, There might be some refactor/rewtite to establist the JMS in PCF. Need to create the services in Manifest.yml."
+		},
+		{
+			"analysisNo": 21,
+			"complexityScore":2,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "SOAP Axis",
+			"analysisCategory": "refactor",
+			"analysisTechSuggestion": "Refactor might be needed based on App Complexity and no of SOAP Calls."
+		},
+		{
+			"analysisNo": 22,
+			"complexityScore":2,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "SOAP cfx",
+			"analysisCategory": "refactor",
+			"analysisTechSuggestion": "Refactor might be needed based on App Complexity and no of SOAP Calls."
+		},
+		{
+			"analysisNo": 23,
+			"complexityScore":0,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "REST API",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "REST API is a good fit in PCF Container."
+		},
+		{
+			"analysisNo": 24,
+			"complexityScore":0,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Spring Batch",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Spring Batch can run in PCF, but Auto scaling might not be possible."
+		},
+		{
+			"analysisNo": 25,
+			"complexityScore":4,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Cron/Quartz",
+			"analysisCategory": "rewrite",
+			"analysisTechSuggestion": "If the application has Cron/Quartz, Auto scaling is not possible. There has to be some rewrite to segrigate the Batch Portion."
+		},
+		{
+			"analysisNo": 26,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "AutoSys",
+			"analysisCategory": "refactor",
+			"analysisTechSuggestion": "AutoSys is possible in PCF as long as the Org has the infrastructure, also some refactor is needed to onboard the application to AutoSys."
+		},
+		{
+			"analysisNo": 27,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "File Handling",
+			"analysisCategory": "rewrite",
+			"analysisTechSuggestion": "If the application is Writing/Reading files in the Physical server, in PCF it should be NAS/HCP etc, So a portion of refactor has to be done."
+		},
+		{
+			"analysisNo": 28,
+			"complexityScore":0,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "XLS Handling",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "XLS File generation is supported in PCF, need to find if any NAS is being used, Any Encryption at Rest is in Place and the size of the XLS."
+		},
+		{
+			"analysisNo": 29,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "PDF Handling",
+			"analysisCategory": "rewrite",
+			"analysisTechSuggestion": "PDF Generation is supported in PCF, but need to know the size of the PDF, the PDF generation consumes huge memory, so rewrite might be required to split into small modules."
+		},
+		{
+			"analysisNo": 30,
+			"complexityScore":0,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "email Handling",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Email Feature is available in PCF, but it will use a different SMTP host."
+		},
+		{
+			"analysisNo": 31,
+			"complexityScore":2,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Redis Cache",
+			"analysisCategory": "refactor",
+			"analysisTechSuggestion": "Redis Cache is supported in PCF/TAS, just need to do some refactor to onboard the infrastructure."
+		},
+		{
+			"analysisNo": 32,
+			"complexityScore":4,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "ehcache Cache",
+			"analysisCategory": "rewrite",
+			"analysisTechSuggestion": "ehcache Cache is a not a good fit for PCF/TAS, so it's better to move it to centralized Cache like Redis'."
+		},
+		{
+			"analysisNo": 33,
+			"complexityScore":4,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Coherence Cache",
+			"analysisCategory": "rewrite",
+			"analysisTechSuggestion": "Coherence Cache is a not a good fit for PCF/TAS, so it's better to move it to centralized Cache like Redis'."
+		},
+		{
+			"analysisNo": 34,
+			"complexityScore":4,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Venafi/JKS",
+			"analysisCategory": "refactor",
+			"analysisTechSuggestion": "SSL Certificates are supported in PCF, but it's recommended to use a centralized certificate store."
+		},
+		{
+			"analysisNo": 35,
+			"complexityScore":4,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "PingFed",
+			"analysisCategory": "refactor",
+			"analysisTechSuggestion": "PingFed is supported in PCF, just some modification is required to make it compatible."
+		},
+		{
+			"analysisNo": 36,
+			"complexityScore":0,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Spring Security",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Spring Security is supported in PCF, but it's recommended to use PingFed. but this is based on Org."
+		},
+		{
+			"analysisNo": 37,
+			"complexityScore":0,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Spring JPA",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Spring JPA is supported in PCF."
+		},
+		{
+			"analysisNo": 38,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "LDAP",
+			"analysisCategory": "rewrite",
+			"analysisTechSuggestion": "LDAP Might / Might not work , based in the infrastructure provided by the Org"
+		},
+		{
+			"analysisNo": 39,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Siteminder",
+			"analysisCategory": "refactor",
+			"analysisTechSuggestion": "Siteminder will work in PCF, but the Org might have restriction."
+		},
+		{
+			"analysisNo": 40,
+			"complexityScore":4,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "NDM",
+			"analysisCategory": "blocker",
+			"analysisTechSuggestion": "NDM is a blocker in PCF, unless the Org has some utility server, where it will host the NDM agent."
+		},
+		{
+			"analysisNo": 41,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "SFTP",
+			"analysisCategory": "refactor",
+			"analysisTechSuggestion": "SFTP using Script will not work, but using JCRAFT will work in PCF."
+		},
+		{
+			"analysisNo": 42,
+			"complexityScore":0,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Web Socket",
+			"analysisCategory": "blocker",
+			"analysisTechSuggestion": "Web Socket might be a blocker, if the PCF doesn't have the support."
+		},
+		{
+			"analysisNo": 43,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Junit 4",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Junit 4 is supported in PCF with buildpack below java 17."
+		},
+		{
+			"analysisNo": 44,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Junit 5",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Junit 5 is supported in PCF with buildpack java 17."
+		},
+		{
+			"analysisNo": 45,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Mokito",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Mokito is supported in PCF."
+		},
+		{
+			"analysisNo": 46,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "PowerMock",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "PowerMock is supported in PCF."
+		},
+		{
+			"analysisNo": 47,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Hamcrest",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Hamcrest is supported in PCF."
+		},
+		{
+			"analysisNo": 48,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Arquillian",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Arquillian is supported in PCF."
+		},
+		{
+			"analysisNo": 49,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "OAuth 2.0",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "OAuth 2.0 is supported in PCF."
+		},
+		{
+			"analysisNo": 50,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "JWT Token",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "JWT Token is supported in PCF."
+		},
+		{
+			"analysisNo": 51,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Request Header",
+			"analysisCategory": "refactor",
+			"analysisTechSuggestion": "Need to be careful, Header size in PCF is by default 8KB, incase the header size is more, code change required."
+		},
+		{
+			"analysisNo": 52,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "JSF",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "JSF is supported in PCF, unless there is a requirement for Mordanization"
+		},
+		{
+			"analysisNo": 53,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Java Multithreading",
+			"analysisCategory": "refactor",
+			"analysisTechSuggestion": "Java Multithreading is supported in PCF. Please be careful, in PCF there is no concept of CPU core, are are shared CPU, called VCPU"
+		},
+		{
+			"analysisNo": 54,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Oracle Liquibase",
+			"analysisCategory": "refactor",
+			"analysisTechSuggestion": "Oracle Liquibase support is dependent on the CICD pipeline used in the Org."
+		},
+		{
+			"analysisNo": 55,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Mongo DB",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Mongo DB is supported in PCF."
+		},
+		{
+			"analysisNo": 56,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "React UI",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "React UI is supported in PCF."
+		},
+		{
+			"analysisNo": 57,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Angular UI",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Angular UI is supported in PCF."
+		},
+		{
+			"analysisNo": 58,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Symantec Antivirus Scan",
+			"analysisCategory": "blocker",
+			"analysisTechSuggestion": "Symantec Antivirus Scan is a blocker in PCF if the legacy app is using agent."
+		},
+		{
+			"analysisNo": 59,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "AES/Base64 Encryption",
+			"analysisCategory": "rewrite",
+			"analysisTechSuggestion": "AES/Base64 Encryption is supported in PCF, but the Org might not allow."
+		},
+		{
+			"analysisNo": 60,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Jasypt Encryption",
+			"analysisCategory": "rewrite",
+			"analysisTechSuggestion": "Jasypt Encryption is supported in PCF, but the Org might not allow."
+		},
+		{
+			"analysisNo": 61,
+			"complexityScore":4,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Server/IP/Socket",
+			"analysisCategory": "rewrite",
+			"analysisTechSuggestion": "Server/IP/Socket specific logic will not support in PCF. here everything will be running in container."
+		},
+		{
+			"analysisNo": 62,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Spring AOP",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Spring AOP is supported in PCF."
+		},
+		{
+			"analysisNo": 63,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Gradle Project",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Gradle Project is supported in PCF."
+		},
+		{
+			"analysisNo": 64,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Maven Project",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Maven Project is supported in PCF."
+		},
+		{
+			"analysisNo": 65,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Java 1.8",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Java 1.8 is supported in PCF, as long as the buildpack is available in ORG."
+		},
+		{
+			"analysisNo": 66,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Java 11",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Java 11 is supported in PCF, as long as the buildpack is available in ORG."
+		},
+		{
+			"analysisNo": 67,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Java 17",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Java 17 is supported in PCF, as long as the buildpack is available in ORG."
+		},
+		{
+			"analysisNo": 68,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Java 17 Obsolate Packages",
+			"analysisCategory": "rewrite",
+			"analysisTechSuggestion": "Java 17 Obsolate Packages has to be take care, in case the app is getting upgraded from java 1.8."
+		},
+		{
+			"analysisNo": 69,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Java reflection",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Java reflection is supported in PCF."
+		},
+		{
+			"analysisNo": 70,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "email Via Log4j",
+			"analysisCategory": "rewrite",
+			"analysisTechSuggestion": "email Via Log4j is not a good practice, need to do some re-write to handle it in code or configure in Splunk."
+		},
+		{
+			"analysisNo": 71,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Log4j",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Log4j is supported in PCF."
+		},
+		{
+			"analysisNo": 72,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "slf4j",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "slf4j is supported in PCF."
+		},
+		{
+			"analysisNo": 73,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Java Logging",
+			"analysisCategory": "rewrite",
+			"analysisTechSuggestion": "Java Logging might not be an industry standard, so might need to move it to log4j/slf4j etc."
+		},
+		{
+			"analysisNo": 74,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Logback Connector",
+			"analysisCategory": "general",
+			"analysisTechSuggestion": "Logback Connector is supported in PCF."
+		},
+		{
+			"analysisNo": 75,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "javax to jakarta",
+			"analysisCategory": "rewrite",
+			"analysisTechSuggestion": "need to change the packages from javax to jakarta as a part of java 17 upgrade.."
+		},
+		{
+			"analysisNo": 76,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Sterling/NDM",
+			"analysisCategory": "refactor",
+			"analysisTechSuggestion": "Sterling/NDM is supported in PCF, but refator might be required."
+		},
+		{
+			"analysisNo": 77,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "hardcoded Password",
+			"analysisCategory": "rewrite",
+			"analysisTechSuggestion": "hardcoded Password is a security risk, need to move them to some secure storage like hashicorp Vault."
+		},
+		{
+			"analysisNo": 78,
+			"complexityScore":3,
+			"isAnalysisDisplayEnabled": true,
+			"analysisTechKey": "Logic in Sh script",
+			"analysisCategory": "rewrite",
+			"analysisTechSuggestion": "SH script is not supported in PCF, need to move any Logic in Sh script to Java."
+		}
+	]
+    
+}
