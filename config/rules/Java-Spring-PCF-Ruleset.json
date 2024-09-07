@@ -951,6 +951,78 @@
             "listOfSearchFilePattern": null,
             "listOfExcludedFilePatterns" : null,
             "isAlertEnabled": false
+        },
+        {
+            "ruleNo": 79,
+            "isRuleEnabled": true,
+            "ruleType":"JasperReport",
+            "ruleDescription": "Check if the application is using JasperReport",
+            "listOfSearchFileType": [".java",".xml",".properties",".json",".yml",".gradle",".jsp",".txt",".md"],
+            "listOfSearchString": ["JasperCompileManager","JasperFillManager","JasperPrint","JasperExportManager","net.sf.jasperreports"],
+            "listOfSearchRegex": null,
+            "listOfSearchFilePattern": null,
+            "listOfExcludedFilePatterns" : null,
+            "isAlertEnabled": true
+        },
+        {
+            "ruleNo": 80,
+            "isRuleEnabled": true,
+            "ruleType":"Business Intelligence and Reporting Tools",
+            "ruleDescription": "Check if the application is using Business Intelligence and Reporting Tools",
+            "listOfSearchFileType": [".java",".xml",".properties",".json",".yml",".gradle",".jsp",".txt",".md"],
+            "listOfSearchString": ["org.eclipse.birt.runtime","IRunAndRenderTask","ReportEngine(","EngineConfig("],
+            "listOfSearchRegex": null,
+            "listOfSearchFilePattern": null,
+            "listOfExcludedFilePatterns" : null,
+            "isAlertEnabled": true
+        },
+        {
+            "ruleNo": 81,
+            "isRuleEnabled": true,
+            "ruleType":"Crystal Report",
+            "ruleDescription": "Check if the application is using Crystal Report",
+            "listOfSearchFileType": [".java",".xml",".properties",".json",".yml",".gradle"],
+            "listOfSearchString": ["import com.crystaldecisions","ReportClientDocument"],
+            "listOfSearchRegex": null,
+            "listOfSearchFilePattern": null,
+            "listOfExcludedFilePatterns" : null,
+            "isAlertEnabled": true
+        },
+        {
+            "ruleNo": 82,
+            "isRuleEnabled": true,
+            "ruleType":"JFreeReport",
+            "ruleDescription": "Check if the application is using JFreeReport",
+            "listOfSearchFileType": [".java",".xml",".gradle"],
+            "listOfSearchString": ["org.pentaho.reporting.engine"],
+            "listOfSearchRegex": null,
+            "listOfSearchFilePattern": null,
+            "listOfExcludedFilePatterns" : null,
+            "isAlertEnabled": true
+        },
+        {
+            "ruleNo": 83,
+            "isRuleEnabled": true,
+            "ruleType":"Velocity Template",
+            "ruleDescription": "Check if the application is using Velocity Template",
+            "listOfSearchFileType": [".java",".xml",".gradle"],
+            "listOfSearchString": ["org.apache.velocity","new VelocityEngine()"],
+            "listOfSearchRegex": null,
+            "listOfSearchFilePattern": null,
+            "listOfExcludedFilePatterns" : null,
+            "isAlertEnabled": true
+        },
+        {
+            "ruleNo": 84,
+            "isRuleEnabled": true,
+            "ruleType":"Ant",
+            "ruleDescription": "Check if the application is using Ant build",
+            "listOfSearchFileType": [".xml",".properties"],
+            "listOfSearchString": ["org.apache.tools.ant"],
+            "listOfSearchRegex": null,
+            "listOfSearchFilePattern": ["build.xml","build.properties","ant.properties"],
+            "listOfExcludedFilePatterns" : null,
+            "isAlertEnabled": true
         }
     ]
 }
