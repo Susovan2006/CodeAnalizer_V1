@@ -22,7 +22,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 import com.susovan.codeanalizer.main.AnalysisDocumentSet.Analysis;
+import com.susovan.codeanalizer.main.GradleDependencyScanner.GradleDependency;
 import com.susovan.codeanalizer.main.LineCounter.FileData;
+import com.susovan.codeanalizer.main.MavenDependencyScanner.Dependency;
 import com.susovan.codeanalizer.main.*;
 
 
@@ -946,7 +948,7 @@ public class Utility {
 				"            );\r\n" + 
 				"        }\r\n" + 
 				"    </style>";
-		System.out.println(graphCss);
+		//System.out.println(graphCss);
 		return graphCss;
 	}
 	
@@ -1012,6 +1014,61 @@ public class Utility {
                      + "(?:\\.(?![.\\\\/:*?\"<>|])[^\\\\/:*?\"<>|]+)?$";
 
         return fileName.matches(regex);
+    }
+	
+	//***************** Sept 6, 2024
+	public static String generateHtmlStringDependencyCollapsible(String appName, String dependency) {
+		String htmlString = "<button class=\"collapsible\">\r\n" + 
+				"	<p style=\"color:green; font-size:20px; font-family:Courier;\"> "
+				+ dependency+ " Dependency Analysis for "+appName+" </p> \r\n"+
+				"	</button> \r\n"
+				+"<div class=\"content\"> \r\n <BR>";
+				//+ "<section class=\"items\"> \r\n";
+		return htmlString;
+	}
+	
+	public static String generateHtmlStringTableHeaderDependencyAnalysis() {
+		String htmlString =
+				"<table id=\"customers\"> \r\n"+
+				"  <tr>\r\n" + 
+				"    <th>GroupId</th>\r\n" + 
+				"    <th>ArtifactId</th>\r\n" + 
+				"    <th>Version</th>\r\n" +  
+				"  </tr>";
+		return htmlString;
+	}
+	
+	public static String createTableRowsForMavenDependencies(List<Dependency> dependencies) {
+        StringBuilder sb = new StringBuilder();
+
+        for (Dependency dependency : dependencies) {
+            sb.append("<tr>\n");
+            sb.append("  <td>").append(dependency.getGroupId()).append("</td>\n");
+            sb.append("  <td>").append(dependency.getArtifactId()).append("</td>\n");
+            sb.append("  <td>").append(dependency.getVersion()).append("</td>\n");
+            sb.append("</tr>\n");
+        }
+
+        return sb.toString();
+    }
+	
+	public static String endHtmlTableDependency() {
+		return "</table> \r\n" + 
+				"</div> \r\n";
+	}
+	
+	public static String createTableRowsForGradleDependencies(List<GradleDependency> gradleDependencies) {
+        StringBuilder sb = new StringBuilder();
+
+        for (GradleDependency gradleDependency : gradleDependencies) {
+            sb.append("<tr>\n");
+            sb.append("  <td>").append(gradleDependency.getGroupId()).append("</td>\n");
+            sb.append("  <td>").append(gradleDependency.getArtifactId()).append("</td>\n");
+            sb.append("  <td>").append(gradleDependency.getVersion()).append("</td>\n");
+            sb.append("</tr>\n");
+        }
+
+        return sb.toString();
     }
 	
 }

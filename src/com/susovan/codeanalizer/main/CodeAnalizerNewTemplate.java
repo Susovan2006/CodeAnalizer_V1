@@ -19,14 +19,17 @@ import java.util.regex.Pattern;
 
 import com.google.gson.Gson;
 import com.susovan.codeanalizer.main.AnalysisDocumentSet.Analysis;
+import com.susovan.codeanalizer.main.GradleDependencyScanner.GradleDependency;
 import com.susovan.codeanalizer.main.LineCounter.FileData;
+import com.susovan.codeanalizer.main.MavenDependencyScanner.Dependency;
+
 
 
 
 
 public class CodeAnalizerNewTemplate {
 
-	public static void main(String[] args) throws IOException, InterruptedException {
+	public static void main(String[] args) throws Exception {
 		
 		
 		//******************************************************************************************
@@ -124,6 +127,8 @@ public class CodeAnalizerNewTemplate {
          //    H T M L   R E P O R T    I N I T I A L I Z A T I O N      S E C T I O N
          //**********************************************************************************************
          StringBuffer outPutReport = new StringBuffer();
+         StringBuffer outPutMavenDependencyReport = new StringBuffer();
+         StringBuffer outPutGradleDependencyReport = new StringBuffer();
  		 outPutReport.append(Utility.generateHtmlStringHeader(applicationName));
  		 outPutReport.append(Utility.generateHtmlStringBody(applicationName));
  		 
@@ -153,7 +158,45 @@ public class CodeAnalizerNewTemplate {
 			System.out.println("Step 4 --> Complexity Analysis Completed Successfully !!!!"); 			
  		}
          
-         
+        //POM.XML Analysis
+ 		//*********************************************************************************
+ 		//Maven Analysis
+ 		if(true) {
+ 			System.out.println("Step 5: Tring to do the POM.xml Analysis......");
+ 			try {
+ 				
+ 				List<Dependency> dependencies = MavenDependencyScanner.scanDirectoryForPomFiles(new File(projectScanDirectory));
+	 			if(dependencies.size() > 0) {
+	 				outPutMavenDependencyReport.append(Utility.generateHtmlStringDependencyCollapsible(applicationName, "Maven"));
+	 				outPutMavenDependencyReport.append(Utility.generateHtmlStringTableHeaderDependencyAnalysis());
+	 				outPutMavenDependencyReport.append(Utility.createTableRowsForMavenDependencies(dependencies));
+	 				outPutMavenDependencyReport.append(Utility.endHtmlTableDependency());
+	 				//outPutReport.append(outPutDependencyReport.toString());
+	 			}
+ 			}catch(Exception ex) {
+ 				System.out.println("Error Occured while parsing the POM.XML");
+ 			}
+ 			
+ 		}//Gradle Analysis
+ 		if(true) {
+ 			System.out.println("Step 6: Tring to do the build.gradle Analysis......");
+ 			try {
+ 				
+ 				List<GradleDependency> gradleDependencies = GradleDependencyScanner.scanDirectoryForGradleFiles(new File(projectScanDirectory));
+	 			if(gradleDependencies.size() > 0) {
+	 				outPutGradleDependencyReport.append(Utility.generateHtmlStringDependencyCollapsible(applicationName, "Gradle"));
+	 				outPutGradleDependencyReport.append(Utility.generateHtmlStringTableHeaderDependencyAnalysis());
+	 				outPutGradleDependencyReport.append(Utility.createTableRowsForGradleDependencies(gradleDependencies));
+	 				outPutGradleDependencyReport.append(Utility.endHtmlTableDependency());
+	 				//outPutReport.append(outPutDependencyReport.toString());
+	 			}
+ 			}catch(Exception ex) {
+ 				System.out.println("Error Occured while parsing the build.gradle");
+ 			}
+ 			
+ 		}
+ 		
+ 		//************************ E N D **************************************************
  		 
  		 
  		 
@@ -298,6 +341,9 @@ public class CodeAnalizerNewTemplate {
 				    //Here we are adding the Disposition Section.				    
 				    analysisAndDesignSection.append(Utility.getDispositionSection(filteredAnalysisList,applicationName, complexity));
 				    //System.out.println(analysisAndDesignSection.toString());
+				    //Adding the POM.XML Analysis (Sept 6,2024)
+				    analysisAndDesignSection.append(outPutMavenDependencyReport.toString());
+				    analysisAndDesignSection.append(outPutGradleDependencyReport.toString());
 				    
 		        }
 			    
