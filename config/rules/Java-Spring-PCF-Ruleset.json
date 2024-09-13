@@ -934,8 +934,8 @@
             "ruleType":"Logic in Sh script",
             "ruleDescription": "Check if the application has logic is Sh script",
             "listOfSearchFileType": [".sh"],
-            "listOfSearchString": ["function","for","fi"],
-            "listOfSearchRegex": null,
+            "listOfSearchString": ["function"],
+            "listOfSearchRegex": ["\\bfi\\b","\\bfor\\b"],
             "listOfSearchFilePattern": null,
             "listOfExcludedFilePatterns" : null,
             "isAlertEnabled": false
@@ -962,7 +962,7 @@
             "listOfSearchRegex": null,
             "listOfSearchFilePattern": null,
             "listOfExcludedFilePatterns" : null,
-            "isAlertEnabled": true
+            "isAlertEnabled": false
         },
         {
             "ruleNo": 80,
@@ -998,7 +998,7 @@
             "listOfSearchRegex": null,
             "listOfSearchFilePattern": null,
             "listOfExcludedFilePatterns" : null,
-            "isAlertEnabled": true
+            "isAlertEnabled": false
         },
         {
             "ruleNo": 83,
@@ -1010,7 +1010,7 @@
             "listOfSearchRegex": null,
             "listOfSearchFilePattern": null,
             "listOfExcludedFilePatterns" : null,
-            "isAlertEnabled": true
+            "isAlertEnabled": false
         },
         {
             "ruleNo": 84,
@@ -1021,6 +1021,30 @@
             "listOfSearchString": ["org.apache.tools.ant"],
             "listOfSearchRegex": null,
             "listOfSearchFilePattern": ["build.xml","build.properties","ant.properties"],
+            "listOfExcludedFilePatterns" : null,
+            "isAlertEnabled": false
+        },
+        {
+            "ruleNo": 85,
+            "isRuleEnabled": true,
+            "ruleType":"Custom Log4j Plugin",//This might not work with Spunk, need attention
+            "ruleDescription": "Check if the application is using Custom Log4j Plugin",
+            "listOfSearchFileType": [".xml",".java",".gradle"],
+            "listOfSearchString": ["log4j.core.config.plugins.Plugin","log4j.core.config.plugins.PluginFactory","log4j.core.config.plugins.PluginAttribute","log4j.core.layout.PatternLayout"],
+            "listOfSearchRegex": null,
+            "listOfSearchFilePattern": null,
+            "listOfExcludedFilePatterns" : null,
+            "isAlertEnabled": true
+        },
+        {
+            "ruleNo": 86,
+            "isRuleEnabled": true,
+            "ruleType":"Hardcoded IP",
+            "ruleDescription": "Check if the application has Hardcoded IP",
+            "listOfSearchFileType": [".java",".xml",".properties",".json",".yml",".gradle",".jsp",".txt",".md"],
+            "listOfSearchString": ["Skip generic Search"],
+            "listOfSearchRegex": ["^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"],
+            "listOfSearchFilePattern": null,
             "listOfExcludedFilePatterns" : null,
             "isAlertEnabled": true
         }
