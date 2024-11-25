@@ -3,6 +3,11 @@
     "rulesetAuthor": "Susovan Sankar Gumtya",
     "rulesetUpdateDate": "May-19-2024",
     "rulesetDescription": "Ruleset for Java Application",
+    #===== HELP On REGEX======
+    #(?i) --> This is a flag that makes the entire regex pattern case-insensitive.
+    #\b --> This is a word boundary anchor. It ensures that the pattern matches only if a whole word and not part of another word. For example, it will match INSERT but not INSERTION.
+    #\s+ --> This matches one or more whitespace characters (spaces, tabs, newlines, etc.). It ensures that there is at least one space between INSERT and INTO.
+    #(\w+) --> This is a capturing group that matches one or more word characters (letters, digits, and underscores). It captures the table name that follows INSERT INTO
     "ruleset": [
         {
             "ruleNo": 1,
@@ -1049,13 +1054,18 @@
             "isAlertEnabled": true
         },
         {
+        	#FROM <table_name> WHERE
+        	#JOIN <table_name>
+        	#UPDATE <table_name>
+        	#INSERT INTO <table_name>
+        	#DELETE FROM <table_name>
             "ruleNo": 87,
             "isRuleEnabled": true,
             "ruleType":"Database Tables",
             "ruleDescription": "Check the Usage Of Database Tables",
             "listOfSearchFileType": [".java",".xml",".properties",".json",".yml",".jsp"],
             "listOfSearchString": ["Skip generic Search"],
-            "listOfSearchRegex": ["(?i)\\bFROM\\b\\s+(\\w+)","@Table\\(name\\s*=\\s*\"(\\w+)\"\\)"],
+            "listOfSearchRegex": ["(?i)\bFROM\s+(\w+)\s+WHERE\b","(?i)\bJOIN\b\s+(\w+)","(?i)\bUPDATE\b\s+(\w+)","(?i)\bINSERT\s+INTO\b\s+(\w+)","(?i)\bDELETE\s+FROM\b\s+(\w+)","@Table\\(name\\s*=\\s*\"(\\w+)\"\\)"],
             "listOfSearchFilePattern": null,
             "listOfExcludedFilePatterns" : null,
             "isAlertEnabled": true
