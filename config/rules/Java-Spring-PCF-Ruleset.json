@@ -1065,7 +1065,7 @@
             "ruleDescription": "Check the Usage Of Database Tables",
             "listOfSearchFileType": [".java",".xml",".properties",".json",".yml",".jsp"],
             "listOfSearchString": ["Skip generic Search"],
-            "listOfSearchRegex": ["(?i)\bFROM\s+(\w+)\s+WHERE\b","(?i)\bJOIN\b\s+(\w+)","(?i)\bUPDATE\b\s+(\w+)","(?i)\bINSERT\s+INTO\b\s+(\w+)","(?i)\bDELETE\s+FROM\b\s+(\w+)","@Table\\(name\\s*=\\s*\"(\\w+)\"\\)"],
+            "listOfSearchRegex": ["(?i)\\bFROM\\s+(\\w+)\\s+WHERE\\b","(?i)\\bJOIN\\b\\s+(\\w+)","(?i)\\bUPDATE\\b\\s+(\\w+)","(?i)\\bINSERT\\s+INTO\\b\\s+(\\w+)","(?i)\\bDELETE\\s+FROM\\b\\s+(\\w+)","@Table\\(name\\s*=\\s*\"(\\w+)\"\\)"],
             "listOfSearchFilePattern": null,
             "listOfExcludedFilePatterns" : null,
             "isAlertEnabled": true
