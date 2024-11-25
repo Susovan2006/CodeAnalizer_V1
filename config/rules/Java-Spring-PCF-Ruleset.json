@@ -774,7 +774,7 @@
         },
         {
             "ruleNo": 65,
-            "isRuleEnabled": true,
+            "isRuleEnabled": false,
             "ruleType":"Java 1.8",
             "ruleDescription": "Check if the application is in Java 1.8",
             "listOfSearchFileType": [".properties",".gradle",".xml"],
@@ -786,7 +786,7 @@
         },
         {
             "ruleNo": 66,
-            "isRuleEnabled": true,
+            "isRuleEnabled": false,
             "ruleType":"Java 11",
             "ruleDescription": "Check if the application is in Java 11",
             "listOfSearchFileType": [".properties",".gradle",".xml"],
@@ -798,7 +798,7 @@
         },
         {
             "ruleNo": 67,
-            "isRuleEnabled": true,
+            "isRuleEnabled": false,
             "ruleType":"Java 17",
             "ruleDescription": "Check if the application is in Java 17",
             "listOfSearchFileType": [".properties",".gradle",".xml"],
@@ -1044,6 +1044,51 @@
             "listOfSearchFileType": [".java",".xml",".properties",".json",".yml",".gradle",".jsp",".txt",".md"],
             "listOfSearchString": ["Skip generic Search"],
             "listOfSearchRegex": ["^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"],
+            "listOfSearchFilePattern": null,
+            "listOfExcludedFilePatterns" : null,
+            "isAlertEnabled": true
+        },
+        {
+            "ruleNo": 87,
+            "isRuleEnabled": true,
+            "ruleType":"Database Tables",
+            "ruleDescription": "Check the Usage Of Database Tables",
+            "listOfSearchFileType": [".java",".xml",".properties",".json",".yml",".jsp"],
+            "listOfSearchString": ["Skip generic Search"],
+            "listOfSearchRegex": ["(?i)\\bFROM\\b\\s+(\\w+)","@Table\\(name\\s*=\\s*\"(\\w+)\"\\)"],
+            "listOfSearchFilePattern": null,
+            "listOfExcludedFilePatterns" : null,
+            "isAlertEnabled": true
+        },
+        {
+            "ruleNo": 88,
+            "isRuleEnabled": true,
+            "ruleType":"DB StoredProc",
+            "ruleDescription": "Check the usage of Database Stored Procedures",
+            "listOfSearchFileType": [".java",".xml",".properties",".json",".yml",".jsp"],
+            "listOfSearchString": ["Skip generic Search"],
+            "listOfSearchRegex": ["(?i)\\bCALL\\b\\s+(\\w+)\\s*\\(.*?\\)","(?i)\\bprepareCall\\b\\s*\\(\\s*\"\\s*\\{\\s*CALL\\s+(\\w+)\\s*\\(.*?\\)\\s*\\}\\s*\"\\s*\\)"],
+            "listOfSearchFilePattern": null,
+            "listOfExcludedFilePatterns" : null,
+            "isAlertEnabled": true
+        },
+        {
+        	#<java.version>1.8
+        	#<maven.compiler.source>1.8</maven.compiler.source>
+        	#<maven.compiler.target>1.8</maven.compiler.target>
+        	#<source>1.8</source>
+        	#<target>1.8</target>
+        	#sourceCompatibility = 1.8
+        	#targetCompatibility = 1.8
+        	#sourceCompatibility = '1.8'
+        	#targetCompatibility = '1.8'
+            "ruleNo": 89,
+            "isRuleEnabled": true,
+            "ruleType":"Java Vesrion",
+            "ruleDescription": "Check the usage of Database Stored Procedures",
+            "listOfSearchFileType": [".java",".xml",".properties",".json",".yml",".jsp"],
+            "listOfSearchString": ["Skip generic Search"],
+            "listOfSearchRegex": ["<java\\.version([^<]+)","<maven\\.compiler\\.source>([^<]+)</maven\\.compiler\\.source>","<maven\\.compiler\\.target>([^<]+)</maven\\.compiler\\.target>","<source>([^<]+)</source>","<target>([^<]+)</target>","sourceCompatibility\\s*=\\s*['\"]?(\\d+(\\.\\d+)?)['\"]?","targetCompatibility\\s*=\\s*['\"]?(\\d+(\\.\\d+)?)['\"]?"],
             "listOfSearchFilePattern": null,
             "listOfExcludedFilePatterns" : null,
             "isAlertEnabled": true
