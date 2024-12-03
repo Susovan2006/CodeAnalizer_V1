@@ -1,6 +1,7 @@
 package com.susovan.codeanalizer.main;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -309,7 +310,7 @@ public class Utility {
 	public static String generateHtmlTableHeader() {
 		String htmlString="<div class=\"row\">\r\n" + 
 				"            <div class=\"col-1-10 panel\">\r\n" + 
-				"                Java Files\r\n" + 
+				"                Project Files\r\n" + 
 				"            </div>\r\n" + 
 				"            <div class=\"col-1-52 panel\">\r\n" + 
 				"                Matches\r\n" + 
@@ -318,10 +319,10 @@ public class Utility {
 		return htmlString;
 	}
 	
-	public static String generateHtmlTableData(String fileName, String matches) {
+	public static String generateHtmlTableData(String fileName, String matches, int length) {
 		String htmlString = "<div class=\"row\">\r\n" + 
 				"            <div class=\"col-1-10\">\r\n" + 
-				"                <p style=\"color:#303030;\"><i>"+fileName+"</i></p>\r\n" + 
+				"                <p style=\"color:#303030;\"><i>"+getPathSegments(fileName,length)+"</i></p>\r\n" + 
 				"            </div>\r\n" + 
 				"            <div class=\"col-1-52\">\r\n" + 
 				"                "+ matches+"\r\n" + 
@@ -1069,6 +1070,36 @@ public class Utility {
         }
 
         return sb.toString();
+    }
+	
+	
+	//Added on Nov 2024
+	public static String getPathSegments(String fullPath, int length) {
+        if (fullPath == null || fullPath.isEmpty() || length <= 0) {
+            return fullPath;
+        }
+
+        // Normalize the path to handle both Unix and Windows file patterns
+        fullPath = fullPath.replace("\\", "/");
+
+        // Split the path into segments
+        String[] segments = fullPath.split("/");
+
+        // If the length is greater than the number of segments, return the full path
+        if (length >= segments.length) {
+            return fullPath.replace("/", File.separator);
+        }
+
+        // Build the result from the last 'length' segments
+        StringBuilder result = new StringBuilder();
+        for (int i = segments.length - length; i < segments.length; i++) {
+            if (result.length() > 0) {
+                result.append(File.separator);
+            }
+            result.append(segments[i]);
+        }
+
+        return result.toString();
     }
 	
 }

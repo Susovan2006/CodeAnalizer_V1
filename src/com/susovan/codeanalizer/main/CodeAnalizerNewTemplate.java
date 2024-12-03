@@ -103,6 +103,9 @@ public class CodeAnalizerNewTemplate {
          String isAnalysisAndDesignSectionEnabled = propertiesReader.getIsAnalysisAndDesignSectionEnabled();
          String pathForAnalysisAndDesignTemplate = propertiesReader.getPathForAnalysisAndDesignTemplate();
          
+         //Added on Nov 2024
+         int printMaxSubfolderTreeBeforeFilename = Integer.valueOf(propertiesReader.getPrintMaxSubfolderTreeBeforeFilename());
+         //System.out.println("----------printMaxSubfolderTreeBeforeFilename----"+printMaxSubfolderTreeBeforeFilename);
          
          //All the exclude extensions are pushed to an ArrayList
          List<String> excludeExtensionlist = new ArrayList<String>();
@@ -245,7 +248,7 @@ public class CodeAnalizerNewTemplate {
 					        	                    	htmlString.append("<p style=\"color:#303030;\"><i><mark>").append(matchFileName).append("</mark></i></p>");
 					        	                    	matchCount++;
 					        	                    }            			
-				        	            			detailReviewData.append(Utility.generateHtmlTableData("Matching File Name Found",htmlString.toString()));
+				        	            			detailReviewData.append(Utility.generateHtmlTableData("Matching File Name Found",htmlString.toString(), 0));
 				        	            		}
 				        	            	
 				        	            	}
@@ -264,7 +267,7 @@ public class CodeAnalizerNewTemplate {
 					        	                    }
 					        	                    
 					        	                    //The delail review section will applear inase there is a match	
-					        	                    detailReviewData.append(Utility.generateHtmlTableData(new File(file).getAbsolutePath(),htmlString.toString()));
+					        	                    detailReviewData.append(Utility.generateHtmlTableData(new File(file).getAbsolutePath(),htmlString.toString(), printMaxSubfolderTreeBeforeFilename));
 					        	                    
 					        	                    
 					        	                } 
@@ -284,7 +287,7 @@ public class CodeAnalizerNewTemplate {
 						        	                    }
 						        	                    
 						        	                    //The delail review section will applear inase there is a match	
-						        	                    detailReviewData.append(Utility.generateHtmlTableData(new File(file).getAbsolutePath(),htmlString.toString()));
+						        	                    detailReviewData.append(Utility.generateHtmlTableData(new File(file).getAbsolutePath(),htmlString.toString(), printMaxSubfolderTreeBeforeFilename));
 						        	                    
 						        	                    
 						        	                } 

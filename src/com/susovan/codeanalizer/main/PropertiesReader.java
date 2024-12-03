@@ -11,6 +11,7 @@ public class PropertiesReader {
     private String applicationName;
     private String consoleInputMode;
     private boolean isConsoleInputModeOn;
+    private String printMaxSubfolderTreeBeforeFilename;
     
     private String projectScanDirectory;
     private String outputReportGenPath;
@@ -58,7 +59,7 @@ public class PropertiesReader {
             pathForAnalysisAndDesignTemplate = prop.getProperty("analysis.design.template.file.location");
             analysisSubCategoryListByUser = prop.getProperty("analysis.subsection.to.display");
             consoleInputMode = prop.getProperty("is.console.input.mode.on");
-            
+            printMaxSubfolderTreeBeforeFilename = prop.getProperty("print.max.subfolder.tree.before.filename").trim();
             
             
             
@@ -166,7 +167,15 @@ public class PropertiesReader {
 	}
 	
 	
-	
+	//Added On Nov 2024
+	public String getPrintMaxSubfolderTreeBeforeFilename() {
+		return printMaxSubfolderTreeBeforeFilename;
+	}
+
+	public void setPrintMaxSubfolderTreeBeforeFilename(String printMaxSubfolderTreeBeforeFilename) {
+		this.printMaxSubfolderTreeBeforeFilename = printMaxSubfolderTreeBeforeFilename;
+	}
+
 	private static boolean stringToBooleanConsoleMode(String str) {
         if (str == null || str.trim().isEmpty()) {
             return false;
